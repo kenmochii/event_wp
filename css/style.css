@@ -221,7 +221,7 @@ button:hover {
 }
 
 .bg-timer {
-  background: url(../images/background/timer-bg.jpg) no-repeat;
+  background: url(../images/background/tlbg.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
@@ -3749,6 +3749,14 @@ h6 {
 }
 
 .btn--blue:hover {
+  background: #3868cd;
+}
+
+.btn--orange {
+  background: #ff6600;
+}
+
+.btn--orange:hover {
   background: #3868cd;
 }
 
