@@ -29,7 +29,7 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
-                    <form method="POST">
+                    <form method="POST" name="register" action="process.php">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -59,11 +59,11 @@
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input type="radio"  name="gender" value="male"> <!-- checked="checked" -->
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="gender" value="female">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -87,7 +87,7 @@
                         <div class="input-group">
                             <label class="label">Ticket</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
+                                <select name="ticket">
                                     <option disabled="disabled" selected="selected">Choose option</option>
                                     <option>Gold</option>
                                     <option>Platinum</option>
