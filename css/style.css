@@ -198,9 +198,10 @@ button:hover {
 }
 
 .bg-banner-one {
-  background: url(../images/background/tomorrow.jpg) no-repeat;
+  background:linear-gradient(0deg, rgba(255, 255, 150, 0.3), rgba(255, 0, 150, 0.3)), url(../images/background/tomorrow.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
+ 
 }
 
 .bg-banner-two {
