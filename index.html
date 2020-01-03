@@ -46,9 +46,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item dropdown active dropdown-slide">
+        <li class="nav-item">
           <a class="nav-link" href="index.html">Home <!-- sepatutnya ada dalam <a> data-toggle="dropdown" -->
-            <span>/</span>
+            <span>|</span>
           </a>
           <!-- Dropdown list 
 
@@ -61,33 +61,33 @@
          
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="speakers.html">Artists
-            <span>/</span>
+          <a class="nav-link" href="#ArtistView">Artists
+            <span>|</span>
           </a>
         </li>
-        <li class="nav-item dropdown dropdown-slide">
+        <!--<li class="nav-item dropdown dropdown-slide">
           <a class="nav-link" href="#" data-toggle="dropdown">Pages<span>/</span></a>
-            <!-- Dropdown list -->
+            
             <div class="dropdown-menu">
               <a class="dropdown-item" href="about-us.html">About Us</a>
-         <!-- <a class="dropdown-item" href="single-speaker.html">Single Speaker</a> -->
+       <a class="dropdown-item" href="single-speaker.html">Single Speaker</a> 
               <a class="dropdown-item" href="gallery.html">Gallery</a>
               <a class="dropdown-item" href="gallery-two.html">Gallery-02</a>
-         <!-- <a class="dropdown-item" href="testimonial.html">Testimonial</a> -->
+          <a class="dropdown-item" href="testimonial.html">Testimonial</a>
               <a class="dropdown-item" href="pricing.html">Pricing</a>
               <a class="dropdown-item" href="FAQ.html">FAQ</a>
-         <!-- <a class="dropdown-item" href="404.html">404</a> -->
+        <a class="dropdown-item" href="404.html">404</a> 
             </div>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link" href="#ScheduleView">Schedule<span>|</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="schedule.html">Schedule<span>/</span></a>
+          <a class="nav-link" href="#SponsorView">Sponsors<span></span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sponsors.html">Sponsors<span>/</span></a>
-        </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
-        </li>
+        </li>-->
       </ul>
       <a href="#call-to-action" class="ticket">
         <img src="images/icon/ticket.png" alt="ticket">
@@ -111,8 +111,8 @@
 			<div class="col-lg-12">
 				<!-- Content Block -->
 				<div class="block">
-					<!-- Coundown Timer -->
-					<div class="timer"></div>
+					
+					
 					<h1>Tomorrowland Concert</h1>
 					<h2>Winter 2020</h2>
 					<h6>25 Dec 2020 AOR, Kedah, Malaysia</h6>
@@ -169,8 +169,8 @@
 =            Performer           =
 ===============================-->
 
-<section class="section speakers bg-speaker overlay-lighter">
-	<div class="container">
+<section id="ArtistView" class="section speakers bg-speaker overlay-lighter">
+	<div  class="container">
 		<div class="row">
 			<div class="col-12">
 				<!-- Section Title -->
@@ -350,7 +350,7 @@
 =            Schedule            =
 ===============================-->
 
-<section class="section schedule">
+<section id="ScheduleView" class="section schedule">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -826,7 +826,7 @@
 =            Sponsors            =
 ===============================-->
 
-<section class="sponsors section bg-sponsors overlay-white">
+<section id="SponsorView" class="sponsors section bg-sponsors overlay-white">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
