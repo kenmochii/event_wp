@@ -12,42 +12,32 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+$email=$_POST["email"];
+$password=$_POST["password"];
 $fname=$_POST["first_name"];
 $lname=$_POST["last_name"];
-$dob=$_POST["birthday"];
 $gender=$_POST["gender"];
-$email=$_POST["email"];
 $phone=$_POST["phone"];
-$ticket=$_POST["ticket"];
+//$ticket=$_POST["ticket"];
 
+$sql=" INSERT INTO user VALUES('$email', '$password', '$fname', '$lname', 'User', '$phone', '$gender', NULL) ";
 
-$sql=" INSERT INTO user ('$email', '$password', '$fname', '$lname', 'user', '$email', '$phone', '$ticket') ";
-mysqli_query($con,$sql);
+$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysql_error());
 
+if($result)
+{
+ echo "You have successfully registered in Tomorrowland!";
 
-if (mysqli_query($con, $sql)) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+ mysqli_close($con);
+
+header("refresh:4.0; url=signin.html");
+}
+ else
+ {
+ echo "Error in registration new user. Please try to register again."; 
+ header("refresh:4.0; url=registration.html");
 }
 
-mysqli_close($con);
-
-
-
-
-echo "Your name is $fname $lname";
-echo "<br>";
-echo "Your date of birth is $dob";
-echo "<br>";
-echo "Your gender is $gender";
-echo "<br>";
-echo "Your email address is $email";
-echo "<br>";
-echo "Your phone is $phone";
-echo "<br>";
-echo "You choose $ticket ticket";
-echo "<br>";
 
 ?>
 

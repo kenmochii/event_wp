@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 04, 2020 at 12:43 PM
+-- Generation Time: Jan 04, 2020 at 02:30 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -59,7 +59,6 @@ CREATE TABLE `user` (
   `usertype` varchar(20) NOT NULL,
   `phoneno` varchar(15) NOT NULL,
   `gender` text NOT NULL,
-  `dob` date NOT NULL,
   `ticket_no` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -67,10 +66,15 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`, `gender`, `dob`, `ticket_no`) VALUES
-('a@a.com', '123', 'Test', 'Testo Acc', 'admin', '01234567890', 'male', '2020-01-02', NULL),
-('aiman.dragonz@gmail.com', 'abc123', 'Muhamad Aiman', 'Remy Shahar', 'admin', '01110056051', 'Male', '1997-07-31', NULL),
-('testuser@user.com', '123', 'User', 'Test Acc', 'user', '01234567890', 'female', '2019-12-31', NULL);
+INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`, `gender`, `ticket_no`) VALUES
+('a@a.com', '123', 'Test', 'Testo Acc', 'Admin', '01234567890', 'male', NULL),
+('admin@test.com', '123', 'SDFG', 'HJKL', 'User', '11111111111', 'female', NULL),
+('aiman.dragonz@gmail.com', 'abc123', 'Muhamad Aiman', 'Remy Shahar', 'Admin', '01110056051', 'Male', NULL),
+('b@b.b', '123', 'Bboy', 'Boboy', 'User', '1234567890', 'male', NULL),
+('mushio@gmail.com', '123', 'Mushio', 'Umaga', 'user', '0123456789', 'male', NULL),
+('qwerty@a.com', '123', 'Qwerty', 'Test', 'User', '12344567789', 'female', NULL),
+('test@a.com', '123', 'Test User', 'User First', 'User', '01234567890', 'male', NULL),
+('testuser@user.com', '123', 'User', 'Test Acc', 'User', '01234567890', 'female', NULL);
 
 -- --------------------------------------------------------
 
