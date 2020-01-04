@@ -20,24 +20,38 @@ $gender=$_POST["gender"];
 $phone=$_POST["phone"];
 //$ticket=$_POST["ticket"];
 
-$sql=" INSERT INTO user VALUES('$email', '$password', '$fname', '$lname', 'User', '$phone', '$gender', NULL) ";
 
-$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysql_error());
-
-if($result)
+$query = "SELECT * FROM user WHERE email='$email' ";
+$sql_result = mysqli_query($con , $query);
+if (mysqli_num_rows($sql_result)>0) //to return the query result in number of rows
 {
- echo "You have successfully registered in Tomorrowland!";
+	header("refresh:4.0; url=register.html");
+ 	die("Email account is already exist. Please try to register again.");
+ 
 
- mysqli_close($con);
-
-header("refresh:4.0; url=signin.html");
-}
- else
- {
- echo "Error in registration new user. Please try to register again."; 
- header("refresh:4.0; url=registration.html");
 }
 
+
+else
+	{
+
+	$sql=" INSERT INTO user VALUES('$email', '$password', '$fname', '$lname', 'User', '$phone', '$gender', NULL) ";
+
+	$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysql_error());
+
+	if($result)
+		{
+	 	echo "You have successfully registered in Tomorrowland!";
+		mysqli_close($con);
+
+		header("refresh:4.0; url=signin.html");
+		}
+	else
+	 	{
+	 	echo "Error in registration new user. Please try to register again."; 
+	 	header("refresh:4.0; url=register.html");
+		}
+	}
 
 ?>
 
