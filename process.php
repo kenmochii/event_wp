@@ -21,7 +21,7 @@ $phone=$_POST["phone"];
 $ticket=$_POST["ticket"];
 
 
-$sql=" INSERT INTO client ('', '$fname', '$lname', '$dob', '$gender', '$email', '$phone', '$ticket') ";
+$sql=" INSERT INTO user ('$email', '$password', '$fname', '$lname', 'user', '$email', '$phone', '$ticket') ";
 mysqli_query($con,$sql);
 
 
