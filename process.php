@@ -27,7 +27,6 @@ if (mysqli_num_rows($sql_result)>0) //to return the query result in number of ro
 {
 	header("refresh:4.0; url=register.html");
  	die("Email account is already exist. Please try to register again.");
- 
 
 }
 

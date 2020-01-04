@@ -27,7 +27,7 @@ if(isset($_SESSION['email']))
 	<br>
 	<br>
 	<div align="center">
-		<button name="logout" type="button" onclick="location.href='logout.php'">Sign Out</button>
+		<button name="logout" type="button" onclick="location.href='../logout.php'">Sign Out</button>
 	</div>
 
 
@@ -37,8 +37,7 @@ if(isset($_SESSION['email']))
 
 else
  echo "No session exist or session is expired. Please log in again";
-//header("refresh:2.0; location=localhost/event_wp/signin.html");
- header("refresh:2.0; url:event_wp/signin.html");
+ header("refresh:2.0; url:../signin.html");
 ?> 
 </body>
 </html>
