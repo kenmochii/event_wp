@@ -46,7 +46,7 @@
                             <div class="col-3">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" type="email" name="email" id="myEmail" onkeyup="check()">
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn-main-md" type="submit">Submit</button>
+                            <button class="btn btn-main-md" type="submit" id="submitbutton" onclick="verify()" disabled>Submit</button>
                             <button href="index.html" class="btn btn-main-md" type="reset">Cancel</button>
 
                         </div>
@@ -67,10 +67,22 @@
                         <br>
                             <a href="register.html"> Don't have an account? Click here to register<p>
                     </form>
+                    <!--Input email JS-->
+                            <script type="text/javascript">
+                              function check() {
+                               if(document.getElementById("myEmail").value==="") { 
+                                        document.getElementById('submitbutton').disabled = true;
+                                        alert("Please insert your input there!");
+                                    } else { 
+                                        document.getElementById('submitbutton').disabled = false;
+                                    }
+                                }
+                            </script>
                 </div>
             </div>
         </div>
     </div>
+    
 
      <!-- Jquery JS-->
     <script src="plugins/vendor/jquery/jquery.min.js"></script>
@@ -82,6 +94,4 @@
     <!-- Main JS-->
     <script src="js/custom.js"></script>
 	</body>
-
-
 	</html>
