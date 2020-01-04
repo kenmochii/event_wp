@@ -1,8 +1,3 @@
-<?php
-//session_start();
-//include 'localhost/event_wp/test/navpanel.php';
-include 'navpanel.php';
-?>
 
 <!DOCTYPE html>
 <html>
@@ -11,9 +6,10 @@ include 'navpanel.php';
 	<title>Test Menu</title>
 </head>
 <body>
-	<?php
+<?php
 //call this function to check if session is exists or not
-$_SESSION["usertype"];
+session_start();
+//$_SESSION["usertype"];
 if(isset($_SESSION['email']))
 {
 	echo "Welcome "; echo $_SESSION['fname'];
@@ -27,6 +23,12 @@ if(isset($_SESSION['email']))
 		<button name="view" type="button" onclick="location.href='view.php'">View</button>
 		<button name="search" type="button" onclick="location.href='search.html'">Search</button>
 	</div>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<button name="logout" type="button" onclick="location.href='logout.php'">Sign Out</button>
+	</div>
 
 
 
@@ -35,8 +37,8 @@ if(isset($_SESSION['email']))
 
 else
  echo "No session exist or session is expired. Please log in again";
-//header("refresh:2.0; url=localhost/event_wp/signin.html");
- //header("refresh:2.0; location:signin.html");
+//header("refresh:2.0; location=localhost/event_wp/signin.html");
+ header("refresh:2.0; url:event_wp/signin.html");
 ?> 
 </body>
 </html>

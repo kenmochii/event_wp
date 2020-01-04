@@ -24,7 +24,7 @@
 	{
 		if(mysqli_num_rows($result)==0)
 		{
-			echo 'User ID does not exist';
+			echo 'User Account does not exist';
 			header("refresh:1.5; url=signin.html");
 			
 		}
@@ -34,7 +34,7 @@
 			$row = mysqli_fetch_array($result, MYSQLI_BOTH);
 			if($row["password"] == $password)
 			{
-				if($row['usertype']=='admin')
+				if($row['usertype']=='Admin')
 				{
 					session_start();
 					$_SESSION["email"] = $email;
@@ -45,7 +45,7 @@
 					header("Location:/event_wp/test/index.php");
 				}
 			
-				elseif($row['usertype']=='user')
+				else if($row['usertype']=='User')
 				{
 					session_start();
 					$_SESSION["email"] = $email;
@@ -56,16 +56,16 @@
 					header("Location:/event_wp/test/index.php");
 				}
 				
-				else
-				{
-					session_start();
-					$_SESSION["email"] = $email;
-					$fname = $row['fname'];
-					$usertype = $row['usertype'];
-					$_SESSION["fname"] = $fname;
-					$_SESSION["usertype"] = $usertype;
-					header("Location:signin.php");
-				}
+				//else
+				//{
+				//	session_start();
+				//	$_SESSION["email"] = $email;
+				//	$fname = $row['fname'];
+				//	$usertype = $row['usertype'];
+				//	$_SESSION["fname"] = $fname;
+				//	$_SESSION["usertype"] = $usertype;
+				//	header("Location:signin.html");
+				//}
 			}
 		
 			else
@@ -75,6 +75,9 @@
 			}
 		}		
 	}
+
+
+mysqli_close($con);
 
 ?>
 </body>
