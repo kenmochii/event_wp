@@ -53,7 +53,7 @@
 					$usertype = $row['usertype'];
 					$_SESSION["fname"] = $fname;
 					$_SESSION["usertype"] = $usertype;
-					header("Location:/event_wp/test/index.php");
+					header("Location:/event_wp/user.php");
 				}
 				
 				//else
