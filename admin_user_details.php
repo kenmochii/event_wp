@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
+                <a class="navbar-brand" href="admin.php"><i class="fa fa-comments"></i> <strong>ADMIN</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

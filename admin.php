@@ -31,6 +31,9 @@ if(isset($_SESSION['email']))
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <!--custom JQuery -->
+  
 </head>
 
 <body>
@@ -43,14 +46,14 @@ if(isset($_SESSION['email']))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="admin.php"> <strong><i class="fa fa-comments"></i><?php echo $_SESSION['fname']?></strong></a>
+                <a class="navbar-brand" href="admin.php"> <strong><i class="fa fa-comments"></i> ADMIN </strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right"> 
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i><b><?php echo $_SESSION['fname']?></b><i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -95,14 +98,21 @@ if(isset($_SESSION['email']))
         <div id="page-wrapper">
             <div id="page-inner">
 
-                <div class="row">
+                <div class="row" id="rowalertfade">
+                    <div class="alert alert-info alert-dismissable fade in">
+                        <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                        <strong>Welcome,</strong> <?php echo $_SESSION['fname']?>
+                    </div>
+
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<!--
                     <div class="col-md-12">
                         <h3 class="page-header">
-                          Welcome, <?php echo $_SESSION['fname']?>
+                          Welcome, <?php// echo $_SESSION['fname']?>
                         </h3>
                     </div>
                 </div>
-
+-->
 
                 <div class="row">
                     <div class="col-md-12">
