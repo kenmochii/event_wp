@@ -40,6 +40,7 @@ else
 
 	$sql="INSERT INTO user_ticket VALUES(null, '$email_exist', '$ticketid')";
 
+
 	$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysqli_error($con));
 
 	if($result)

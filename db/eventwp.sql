@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 04, 2020 at 02:30 PM
+-- Generation Time: Jan 05, 2020 at 05:13 PM
 -- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -58,23 +58,26 @@ CREATE TABLE `user` (
   `lname` varchar(100) NOT NULL,
   `usertype` varchar(20) NOT NULL,
   `phoneno` varchar(15) NOT NULL,
-  `gender` text NOT NULL,
-  `ticket_no` int(10) DEFAULT NULL
+  `gender` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`, `gender`, `ticket_no`) VALUES
-('a@a.com', '123', 'Test', 'Testo Acc', 'Admin', '01234567890', 'male', NULL),
-('admin@test.com', '123', 'SDFG', 'HJKL', 'User', '11111111111', 'female', NULL),
-('aiman.dragonz@gmail.com', 'abc123', 'Muhamad Aiman', 'Remy Shahar', 'Admin', '01110056051', 'Male', NULL),
-('b@b.b', '123', 'Bboy', 'Boboy', 'User', '1234567890', 'male', NULL),
-('mushio@gmail.com', '123', 'Mushio', 'Umaga', 'user', '0123456789', 'male', NULL),
-('qwerty@a.com', '123', 'Qwerty', 'Test', 'User', '12344567789', 'female', NULL),
-('test@a.com', '123', 'Test User', 'User First', 'User', '01234567890', 'male', NULL),
-('testuser@user.com', '123', 'User', 'Test Acc', 'User', '01234567890', 'female', NULL);
+INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`, `gender`) VALUES
+('a@a.com', '123', 'Test', 'Testo Acca', 'Admin', '01234567890', 'female'),
+('abdul@gmail.com', '123', 'abdul', 'aimanudinnudin', 'User', '0176903894', 'male'),
+('admin@test.com', '123', 'SDFG', 'HJKL', 'User', '11111111111', 'male'),
+('aiman.dragonz@gmail.com', 'abc123', 'Muhamad Aiman', 'Remy Shahar', 'Admin', '01110056051', 'Male'),
+('aimannur@gmail.com', '123', 'aiman', 'nur', 'User', '123102973', 'male'),
+('amir@tm.com', '123', 'amirul', 'aiman', 'User', '0174628261', 'male'),
+('ayam@gmail.com', '123', 'amir', 'ayam', 'User', '012381288631', 'male'),
+('b@b.b', '123', 'Bboy', 'Boboy', 'User', '1234567890', 'male'),
+('mushio@gmail.com', '123', 'Mushio', 'Umaga', 'User', '0123456789', 'male'),
+('qwerty@a.com', '123', 'Qwerty', 'Test', 'User', '12344567789', 'female'),
+('test@a.com', '123', 'Test User', 'User First', 'User', '01234567890', 'male'),
+('testuser@user.com', '123', 'User', 'Test Acc', 'User', '01234567890', 'female');
 
 -- --------------------------------------------------------
 
@@ -83,10 +86,17 @@ INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`
 --
 
 CREATE TABLE `user_ticket` (
-  `ticket_no` int(10) NOT NULL,
+  `purchase_id` int(10) NOT NULL,
   `email` varchar(100) NOT NULL,
   `ticket_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_ticket`
+--
+
+INSERT INTO `user_ticket` (`purchase_id`, `email`, `ticket_id`) VALUES
+(1, 'abdul@gmail.com', 'GA001');
 
 --
 -- Indexes for dumped tables
@@ -103,16 +113,15 @@ ALTER TABLE `ticket`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`email`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `ticket_no` (`ticket_no`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `user_ticket`
 --
 ALTER TABLE `user_ticket`
-  ADD PRIMARY KEY (`ticket_no`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `ticket_id` (`ticket_id`);
+  ADD UNIQUE KEY `ticket_id` (`ticket_id`),
+  ADD UNIQUE KEY `purchase_id` (`purchase_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -122,24 +131,18 @@ ALTER TABLE `user_ticket`
 -- AUTO_INCREMENT for table `user_ticket`
 --
 ALTER TABLE `user_ticket`
-  MODIFY `ticket_no` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `purchase_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`ticket_no`) REFERENCES `user_ticket` (`ticket_no`);
-
---
 -- Constraints for table `user_ticket`
 --
 ALTER TABLE `user_ticket`
-  ADD CONSTRAINT `user_ticket_ibfk_1` FOREIGN KEY (`email`) REFERENCES `user` (`email`),
-  ADD CONSTRAINT `user_ticket_ibfk_2` FOREIGN KEY (`ticket_id`) REFERENCES `ticket` (`ticket_id`);
+  ADD CONSTRAINT `email_fk` FOREIGN KEY (`email`) REFERENCES `user` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ticket_fk` FOREIGN KEY (`ticket_id`) REFERENCES `ticket` (`ticket_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
