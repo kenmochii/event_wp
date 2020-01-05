@@ -707,28 +707,50 @@
 		</div>
 		<div class="row">
 			<!--Add MSQL Query code here-->
+			<?php
+
+
+             $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
+
+             $sql="SELECT * FROM ticket";
+
+             $result=mysqli_query($con,$sql) or die("cannot execute sql");
+
+             while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
+             	{
+             		$id=$data[0];
+                    $type=$data[1];
+                    $price=$data[2];
+                    $desc=$data[3];
+                    $qty=$data[4];
+
+
+?>
+
+
+
+
+
+
 			<div class="col-lg-4 col-md-6">
 				<!-- Pricing Item -->
 				<div class="pricing-item featured">
 					<div class="pricing-heading">
 						<!-- Title -->
 						<div class="title">
-							<h6>VIP Lite</h6>
+							<h6><?php echo "$type";?></h6>
 						</div>
 						<!-- Price -->
 						<div class="price">
-							<h2>49.00<span>$</span></h2>
+							<h2><?php echo "$price";?><span>$</span></h2>
 							<p>/Person</p>
 						</div>
 					</div>
 					<div class="pricing-body">
 						<!-- Feature List -->
 						<ul class="feature-list m-0 p-0">
-							<li><p><span class="fa fa-check-circle available"></span>Exclusive Viewing Area</p></li>
-							<li><p><span class="fa fa-check-circle available"></span>Lunch and Drink coupons</p></li>
-							<li><p><span class="fa fa-check-circle available"></span>Lockers (free of charge, limited quantity available)</p></li>
-							<li><p><span class="fa fa-times-circle unavailable"></span>Backstage Access</p></li>
-							<li><p><span class="fa fa-times-circle unavailable"></span>VIP Lounge</p></li>
+							<li><p><span class="fa fa-check-circle available"></span><?php echo "$desc";?></p></li>
+							
 						</ul>
 					</div>
 					<div class="pricing-footer text-center">
@@ -736,7 +758,7 @@
 					</div>
 				</div>
 			</div>
-			
+			<?php } ?>
 		</div>
 	</div>
 </section>
@@ -1114,6 +1136,3 @@
 </body>
 
 </html>
-
-
-

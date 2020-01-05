@@ -155,14 +155,14 @@ if(isset($_SESSION['email']))
 
 ?>
                                         <tr class="odd gradeX">
-                                        <form method="POST" action="update.php">
+                                        <form method="POST" action="updateticket.php">
                                             <td> <?php echo "$id"?>
 
                                             <input type="hidden" name="ticketid" value="<?php echo "$id"?>"/>
 
                                             </td>
                                             <td>
-                                                  <input type="text" name="ticketype" value="<?php echo "$type"?>"/></td>
+                                                  <input type="text" name="tickettype" value="<?php echo "$type"?>"/></td>
                                             <td>
                                                 <input type="text" name="ticketprice" value="<?php echo "$price"?>"/></td>
 
