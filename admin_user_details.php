@@ -236,7 +236,7 @@ if(isset($_SESSION['email']))
 
 else
  echo "No session exist or session is expired. Please log in again";
- header("refresh:2.0; url:../signin.html");
+ header("refresh:2.0; url:../signin.php");
 ?> 
    
 </body>
