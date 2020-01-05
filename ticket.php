@@ -97,27 +97,17 @@ if(isset($_SESSION['email']))
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
-                   
-<?php
-                    if(isset($_GET['alert']))
-                      {
-                        ?>
-                        <div class="alert alert-info alert-dismissable fade in">
-                        <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
-                        <strong>Welcome,</strong> <?php echo $_SESSION['fname']?>
-                        </div>
-                        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-                        <?php
-                      }
-                      ?>
+
 
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Dashboard <small>Summary of your App</small>
+                            TICKET <small>Managing event ticket here</small>
                         </h1>
                     </div>
                 </div>
+                
+				
 				
                 <!-- /. ROW  -->
 

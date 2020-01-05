@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+//$_SESSION["usertype"];
+if(isset($_SESSION['email']))
+{
+    //echo "Welcome "; echo $_SESSION['fname'];
+?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -31,14 +38,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
+                <a class="navbar-brand" href="admin.php"><i class="fa fa-comments"></i> <strong>ADMIN</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i><b><?php echo $_SESSION['fname']?><i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -66,7 +73,7 @@
                                 <a href="admin.php">Home</a>
                             </li>
                             <li>
-                                <a href="#">Ticket</a>
+                                <a href="ticket.php">Ticket</a>
                             </li>
                             <li>
                                 <a href="admin_user_details.php">User</a>
@@ -100,7 +107,7 @@
 
 ?>
                         <h1 class="page-header">
-                            User <small>Responsive tables</small>
+                            USER <small>Managing registered user here</small>
                         </h1>
                     </div>
                 </div> 
@@ -223,6 +230,13 @@
          <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
     
+    <?php //put right before close </body> tag
+}
+
+else
+ echo "No session exist or session is expired. Please log in again";
+ header("refresh:2.0; url:../signin.html");
+?> 
    
 </body>
 </html>

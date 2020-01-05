@@ -42,7 +42,7 @@
 					$usertype = $row['usertype'];
 					$_SESSION["fname"] = $fname;
 					$_SESSION["usertype"] = $usertype;
-					header("Location:admin.php");
+					header("Location:admin.php?alert=");
 				}
 			
 				else if($row['usertype']=='User')
