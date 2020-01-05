@@ -90,13 +90,16 @@
                     <div class="col-md-12">
                       <?php 
 
-                    if(isset($_GET['message']))
-                      {
-                         $message=$_GET['message'];
-                          echo '<script language="javascript">';
-                          echo 'alert("Data has been updated")';
-                          echo '</script>';
-                      }
+                    if(isset($_GET['update']))
+                      { ?>
+                    <div class="row">
+                    <div class="alert alert-success alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Success!</strong> the data has been updated
+                    </div>
+
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+                     <?php }
 
 ?>
                         <h1 class="page-header">
