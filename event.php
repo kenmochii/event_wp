@@ -17,7 +17,8 @@ if(isset($_SESSION['email']))
     
 
 ?>
- <!DOCTYPE html>
+
+        <!DOCTYPE html>
         <html>
         <head>
             <meta charset="utf-8" />
@@ -60,9 +61,7 @@ if(isset($_SESSION['email']))
                                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                <li><a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -79,16 +78,14 @@ if(isset($_SESSION['email']))
                     <div class="sidebar-collapse">
                         <ul class="nav" id="main-menu">
 
-                            <li>
-                                <a href="user.php"><i class="fa fa-sitemap"></i> Dashboard</a>
-                                
+                            <li>                
                                     <li>
-                                        <a href="myticket.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
+                                        <a href="user.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
                                     </li>
 
                                     <li>
 
-                                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i>Event</a>
+                                        <a href="event.php"><i class="fa fa-qrcode"></i>Event</a>
                                     </li>
                                 
                             </li>
@@ -105,10 +102,70 @@ if(isset($_SESSION['email']))
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="page-header">
-                                    My Ticket</h1>
+                                    Dashboard 
+                                </h1>
                             </div>
                         </div>
                         
+                        
+                        <!-- /. ROW  -->
+
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="panel panel-primary text-center no-boder bg-color-green green">
+                                    <div class="panel-left pull-left green">
+                                        <i class="fa fa-bar-chart-o fa-5x"></i>
+                                        
+                                    </div>
+                                    <div class="panel-right pull-right">
+                                         <!--<h3><?php echo "$total"?></h3>-->
+                                       <strong> Registered </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="panel panel-primary text-center no-boder bg-color-blue blue">
+                                      <div class="panel-left pull-left blue">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                        </div>
+                                        
+                                    <div class="panel-right pull-right">
+                                    <h3>52,160 </h3>
+                                       <strong> Sales</strong>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="panel panel-primary text-center no-boder bg-color-red red">
+                                    <div class="panel-left pull-left red">
+                                        <i class="fa fa fa-comments fa-5x"></i>
+                                       
+                                    </div>
+                                    <div class="panel-right pull-right">
+                                     <h3>15,823 </h3>
+                                       <strong> Comments </strong>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="panel panel-primary text-center no-boder bg-color-brown brown">
+                                    <div class="panel-left pull-left brown">
+                                        <i class="fa fa-users fa-5x"></i>
+                                        
+                                    </div>
+                                    <div class="panel-right pull-right">
+                                    <h3>36,752 </h3>
+                                     <strong>No. of Visits</strong>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    
+                <!--/.row-->
                         <div class="row">
                             <div class="col-md-4 col-sm-12 col-xs-12">
                                 <div class="panel panel-default">
@@ -248,14 +305,15 @@ if(isset($_SESSION['email']))
             <!-- Custom Js -->
             <script src="assets/js/custom-scripts.js"></script>
 
-    <?php //put right before close </body> tag
-    
-    }
+        <?php //put right before close </body> tag
+
+}
     
 
 else
-     echo "No session exist or session is expired. Please log in again";
-     header("refresh:2.0; url:../signin.html");
+ echo "No session exist or session is expired. Please log in again";
+ header("refresh:2.0; url:../signin.html");
 ?> 
 </body>
+
 </html>

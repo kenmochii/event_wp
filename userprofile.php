@@ -1,23 +1,32 @@
  <?php
-
-
- //$con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
-
-    // $sql="SELECT * FROM user";
- 
- //$result=mysqli_query($con,$sql) or die("cannot execute sql");
-   // $total=mysqli_num_rows($result);
-
-
-//call this function to check if session is exists or not
 session_start();
 //$_SESSION["usertype"];
 if(isset($_SESSION['email']))
 {
-    
+   
+
+
+ $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
+
+$id=$_SESSION['email'];
+
+$sql="SELECT * FROM user WHERE email LIKE '%$id%'";
+
+$result=mysqli_query($con,$sql) or die("cannot execute sql");
+
+ $data=mysqli_fetch_array($result,MYSQLI_BOTH);
+    $email=$data[0];
+    $pwd=$data[1];
+    $fname=$data[2];
+    $lname=$data[3];
+    $pnum=$data[5];
+    $gender=$data[6];
+
+
+
 
 ?>
- <!DOCTYPE html>
+        <!DOCTYPE html>
         <html>
         <head>
             <meta charset="utf-8" />
@@ -44,7 +53,10 @@ if(isset($_SESSION['email']))
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+
                         <a class="navbar-brand" href="index.html"> <strong><i class="fa fa-comments"></i><?php echo $_SESSION['fname'];?> </strong></a>
+                      
+
                     </div>
 
                     <ul class="nav navbar-top-links navbar-right"> 
@@ -54,9 +66,8 @@ if(isset($_SESSION['email']))
                                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li><a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                               <li><a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
-                              
                                 <li class="divider"></li>
                                 <li>
                                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -67,14 +78,17 @@ if(isset($_SESSION['email']))
                         <!-- /.dropdown -->
                     </ul>
                 </nav>
+               
                 <!--/. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
                     <div class="sidebar-collapse">
                         <ul class="nav" id="main-menu">
 
                             <li>
+                                <a href="#"><i class="fa fa-sitemap"></i> Dashboard</a>
+                                
                                     <li>
-                                        <a href="user.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
+                                        <a href="myticket.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
                                     </li>
 
                                     <li>
@@ -91,73 +105,71 @@ if(isset($_SESSION['email']))
                 <!-- /. NAV SIDE  -->
                 <div id="page-wrapper">
                     <div id="page-inner">
-
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h1 class="page-header">
-                                    My Ticket</h1>
-                            </div>
-                        </div>
-                        <div class="row">
-                <div class="col-md-4 col-sm-4">
+                                     <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            User Profile
+                        </h1>
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+              <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Default Panel
+                            Your Details Information
                         </div>
                         <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            Panel Footer
-                        </div>
-                    </div>
-                </div>
-              
-               
-            </div>
-                   <!-- /. ROW  -->
-                        <div class="row">
-                            <div class="col-md-4 col-sm-12 col-xs-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        Tasks Panel
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="list-group">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form method="POST" action="updateprofile.php">
+                                        <div class="form-group">
+                                            <label>Email cannot be update. Please contact support for to change email.</label>
+                                            <br>
+                                            <input type="hidden" class="form-control" name="e_email" value=<?php echo "$email"?>>
+                                             <input  disabled class="form-control"  value=<?php echo "$email"?>>
 
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">7 minutes ago</span>
-                                                <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">16 minutes ago</span>
-                                                <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">36 minutes ago</span>
-                                                <i class="fa fa-fw fa-globe"></i> Invoice 653 has paid
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">1 hour ago</span>
-                                                <i class="fa fa-fw fa-user"></i> A new user has been added
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">1.23 hour ago</span>
-                                                <i class="fa fa-fw fa-user"></i> A new user has added
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">yesterday</span>
-                                                <i class="fa fa-fw fa-globe"></i> Saved the world
-                                            </a>
                                         </div>
-                                        <div class="text-right">
-                                            <a href="#">More Tasks <i class="fa fa-arrow-circle-right"></i></a>
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input class="form-control" name="f_fname" value=<?php echo "$fname"?>>
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input class="form-control" name="l_lname" value=<?php echo "$lname"?>>
+                                        </div>
+                                           
+                                         <div class="form-group">
+                                            <label>Phone Number</label>
+                                            <input class="form-control" name="p_pnum" value=<?php echo "$pnum"?>>
+                                        </div>
+                                    
+                                    <div class="form-group">
+                                            <label>Gender</label>
+                                            <select class="form-control" name="g_gender">
+                                                <option selected> <?php echo "$gender"?> </option>
+                                                <option value = "male">male</option>
+                                                <option value = "female">female</option>
+                                               
+                                            </select>
+                                            <br>
+
+                                        <button type="submit" class="btn btn-default">Update</button>
+                                        <button type="reset" class="btn btn-default">Reset</button>
+                                    </form>
                                 </div>
-
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <!-- /.col-lg-6 (nested) -->
                             </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
                         </div>
                         <!-- /. ROW  -->
                         <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
@@ -187,14 +199,15 @@ if(isset($_SESSION['email']))
             <!-- Custom Js -->
             <script src="assets/js/custom-scripts.js"></script>
 
-    <?php //put right before close </body> tag
-    
-    }
+        <?php //put right before close </body> tag
+
+}
     
 
 else
-     echo "No session exist or session is expired. Please log in again";
-     header("refresh:2.0; url:../signin.html");
+ echo "No session exist or session is expired. Please log in again";
+ header("refresh:2.0; url:../signin.html");
 ?> 
 </body>
+
 </html>
