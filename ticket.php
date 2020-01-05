@@ -11,7 +11,7 @@ if(isset($_SESSION['email']))
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Bootstrap Admin html Template : Master</title>
-	<!-- Bootstrap Styles-->
+    <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -93,24 +93,21 @@ if(isset($_SESSION['email']))
 
         <div id="page-wrapper" >
             <div id="page-inner">
-			 <div class="row">
+             <div class="row">
                     <div class="col-md-12">
                       <?php 
 
-                    if(isset($_GET['update']))
-                      { ?>
-                    <div class="row">
-                    <div class="alert alert-success alert-dismissable fade in">
-                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
-                    <strong>Success!</strong> the data has been updated
-                    </div>
-
-                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-                     <?php }
+                    if(isset($_GET['message']))
+                      {
+                         $message=$_GET['message'];
+                          echo '<script language="javascript">';
+                          echo 'alert("Data has been updated")';
+                          echo '</script>';
+                      }
 
 ?>
                         <h1 class="page-header">
-                            USER <small>Managing registered user here</small>
+                            TICKET <small>Managing event ticket here</small>
                         </h1>
                     </div>
                 </div> 
@@ -124,19 +121,18 @@ if(isset($_SESSION['email']))
                         <div class="panel-heading">
                              Advanced Tables
                         </div>
+
                         <div class="panel-body">
                             <div class="table-responsive">
                                 
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Email</th>
-                                            <th>Password</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Phone Number</th>
-                                            <th>Gender</th>
-                                            <th>Ticket Number</th>
+                                            <th>Ticket ID</th>
+                                            <th>Type</th>
+                                            <th>Price</th>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
                                             <th>Manage</th>
                                         </tr>
                                     </thead>
@@ -146,44 +142,33 @@ if(isset($_SESSION['email']))
 
                                         $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
 
-                                        $sql="SELECT * FROM user";
+                                        $sql="SELECT * FROM ticket";
 
                                         $result=mysqli_query($con,$sql) or die("cannot execute sql");
 
                                         while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
-{                                       $email=$data[0];
-                                        $pwd=$data[1];
-                                        $fname=$data[2];
-                                        $lname=$data[3];
-                                        $pnum=$data[5];
-                                        $gender=$data[6];
-                                        $ticketnum=$data[7];
+{                                       $id=$data[0];
+                                        $type=$data[1];
+                                        $price=$data[2];
+                                        $desc=$data[3];
+                                        $qty=$data[4];
+
 ?>
                                         <tr class="odd gradeX">
                                         <form method="POST" action="update.php">
-                                            <td> <?php echo "$email"?>
+                                            <td> <?php echo "$id"?>
 
-                                            <input type="hidden" name="e_email" value="<?php echo "$email"?>"/>
+                                            <input type="hidden" name="ticketid" value="<?php echo "$id"?>"/>
 
                                             </td>
                                             <td>
-                                                  <input type="text" name="p_pwd" value="<?php echo "$pwd"?>"/></td>
+                                                  <input type="text" name="ticketype" value="<?php echo "$type"?>"/></td>
                                             <td>
-                                                <input type="text" name="f_fname" value="<?php echo "$fname"?>"/></td>
+                                                <input type="text" name="ticketprice" value="<?php echo "$price"?>"/></td>
 
-                                            <td><input type="text" name="l_lname" value="<?php echo "$lname"?>"/></td>
+                                            <td><input type="text" name="ticketdesc" value="<?php echo "$desc"?>"/></td>
 
-                                            <td><input type="text" name="p_num" value="<?php echo "$pnum"?>"/></td>
-
-                                            <td><select name="g_gender">
-                                                
-                                            <option selected> <?php echo "$gender"?> </option>
-                                                <option value = "male">male</option>
-                                                <option value = "female">female</option>
-
-                                            </td>
-
-                                            <td><?php echo "$ticketnum"?></td>
+                                            <td><input type="text" name="ticketqty" value="<?php echo "$qty"?>"/></td>
                                             <td>
 
                                                 <button class="btn btn-default"><i class=" fa fa-refresh "></i>Update</button> 
@@ -204,6 +189,9 @@ if(isset($_SESSION['email']))
                         </div>
                     </div>
                     <!--End Advanced Tables -->
+                    <div align="right">
+     <button type="button" name="addticket" id="addtic" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-success">Add</button>
+    </div>
                 </div>
             </div>
             
@@ -329,3 +317,105 @@ else
   });
  });
 </script>
+
+
+
+
+<!-- ADD TICKET MODAL FUNCTION AND JQUERY -->
+
+<div id="add_data_Modal" class="modal fade">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title"><b>Add New Event Ticket</b></h4>
+   </div>
+   <div class="modal-body">
+    <form method="POST" id="insert_form" action="addticket.php">
+     <label>Ticket ID</label>
+     <input type="text" name="tid" id="tid" class="form-control" />
+     <br />
+     <label>Type</label>
+     <input type="text" name="ttype" id="ttype" class="form-control">
+     <br />
+     <label>Price</label>
+     <input type="text" name="tprice" id="tprice" class="form-control">
+     <br /> 
+     <label>Description</label>
+     <textarea name="tdesc" id="tdesc" class="form-control"/></textarea>
+     <br />  
+     <label>Quantity</label>
+     <input type="text" name="tqty" id="tqty" class="form-control" />
+     <br />
+     <input type="submit" name="insert" id="insert" value="Submit" class="btn btn-success" />
+
+    </form>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div id="dataModal" class="modal fade">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Employee Details</h4>
+   </div>
+   <div class="modal-body" id="ticket_detail">
+    
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+<script>  
+$(document).ready(function(){
+ $('#insert_form').on("submit", function(event){  
+  event.preventDefault();  
+  if($('#tid').val() == "")  
+  {  
+   alert("Ticket ID is required");  
+  }  
+  else if($('#ttype').val() == '')  
+  {  
+   alert("Ticket Type is required");  
+  }  
+  else if($('#tprice').val() == '')
+  {  
+   alert("Ticket Price is required");  
+  }
+  else if($('#tdesc').val() == '')
+  {  
+   alert("Ticket Description is required");  
+  }
+  else if($('#tqty').val() == '')
+  {  
+   alert("Ticket Quantity is required");  
+  }
+
+   
+  else  
+  {  
+   $.ajax({  
+    url:"addticket.php",  
+    method:"POST",  
+    data:$('#insert_form').serialize(),  
+    beforeSend:function(){  
+     $('#insert').val("Inserting");  
+    },  
+    success:function(data){  
+     $('#insert_form')[0].reset();  
+     $('#add_data_Modal').modal('hide');  
+     //$('#employee_table').html(data);  
+    }  
+   });  
+  }  
+ }); 
+ </script>
