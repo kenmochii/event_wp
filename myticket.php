@@ -60,10 +60,9 @@ if(isset($_SESSION['email']))
                                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                <li><a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                                </li>
+                              
                                 <li class="divider"></li>
                                 <li>
                                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -88,7 +87,7 @@ if(isset($_SESSION['email']))
 
                                     <li>
 
-                                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i>Event</a>
+                                        <a href="event.php"><i class="fa fa-qrcode"></i>Event</a>
                                     </li>
                                 
                             </li>
@@ -108,7 +107,24 @@ if(isset($_SESSION['email']))
                                     My Ticket</h1>
                             </div>
                         </div>
-                        
+                        <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Default Panel
+                        </div>
+                        <div class="panel-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                        </div>
+                        <div class="panel-footer">
+                            Panel Footer
+                        </div>
+                    </div>
+                </div>
+              
+               
+            </div>
+                   <!-- /. ROW  -->
                         <div class="row">
                             <div class="col-md-4 col-sm-12 col-xs-12">
                                 <div class="panel panel-default">
