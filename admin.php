@@ -1,4 +1,9 @@
 ﻿ <?php
+session_start();
+//$_SESSION["usertype"];
+if(isset($_SESSION['email']))
+{
+    //echo "Welcome "; echo $_SESSION['fname'];
 
 
  $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
@@ -38,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"> <strong><i class="fa fa-comments"></i> Admin</strong></a>
+                <a class="navbar-brand" href="admin.php"> <strong><i class="fa fa-comments"></i><?php echo $_SESSION['fname']?></strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right"> 
@@ -53,7 +58,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -90,6 +95,14 @@
         <div id="page-wrapper">
             <div id="page-inner">
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="page-header">
+                          Welcome, <?php echo $_SESSION['fname']?>
+                        </h3>
+                    </div>
+                </div>
+
 
                 <div class="row">
                     <div class="col-md-12">
@@ -98,6 +111,7 @@
                         </h1>
                     </div>
                 </div>
+                
 				
 				
                 <!-- /. ROW  -->
@@ -302,7 +316,13 @@
 	
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
+<?php //put right before close </body> tag
+}
 
+else
+ echo "No session exist or session is expired. Please log in again";
+ header("refresh:2.0; url:../signin.html");
+?> 
 
 </body>
 
