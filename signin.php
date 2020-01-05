@@ -1,7 +1,7 @@
 <?php
 session_start();
 //$_SESSION["usertype"];
-if(isset($_SESSION['email']))
+if(!isset($_SESSION['email']))
 {
 
 ?>
@@ -108,6 +108,14 @@ if(isset($_SESSION['email']))
 }
 
 else
- echo "No session exist or session is expired. Please log in again";
- header("refresh:2.0; url:../signin.php");
+{
+ session_destroy();
+ echo "Session already exist and you're trying to reach sign in page again then now you're will be sign out. Please log in again.";
+ header("refresh:2.0; url=signin.php");
+
+}
+exit();
 ?> 
+
+
+

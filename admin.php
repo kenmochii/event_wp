@@ -331,9 +331,13 @@ while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
 }
 
 else
+{
  echo "No session exist or session is expired. Please log in again";
  header("refresh:2.0; url:../signin.php");
+}
+ exit();
 ?> 
+
 
 </body>
 
