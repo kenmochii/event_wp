@@ -28,7 +28,7 @@ $email_exist=$_SESSION["email"];
 $query = "SELECT * FROM user_ticket WHERE email='$email_exist' ";
 $sql_result = mysqli_query($con , $query);
 
-if (mysqli_num_rows($sql_result)>2) //to return the query result in number of rows
+if (mysqli_num_rows($sql_result)>10) //to return the query result in number of rows
 {
 	header("refresh:2.0; url=user.php");
  	die("You already have already reach the limit purchase tickets");
@@ -38,78 +38,69 @@ if (mysqli_num_rows($sql_result)>2) //to return the query result in number of ro
 else
 	{
 //if statement to set limit if total purchased already reach total quantity of ticket
-		$sql="SELECT * FROM ticket";
-
+		$sql="SELECT * FROM ticket WHERE ticket_id='$ticketid'";
 		$result=mysqli_query($con,$sql) or die("cannot execute sql");
-
 		while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
 		{
-		$tid=$row[0];
-		//echo "aa";
+			$tid=$row[0];
+			$ticketquan=$row[4];
 
+			
+			
 
+		}
+		///////////////////////////////
 		$sql1="SELECT COUNT(ticket_id) as total FROM user_ticket WHERE ticket_id='$tid'";
- 
+	 
 		$result1=mysqli_query($con,$sql1) or die("cannot execute sql");
 
 		$total = 0;
-		while ($row = mysqli_fetch_array($result1, MYSQLI_BOTH)) {
-	    $total = $row['total'];
+		while ($row1 = mysqli_fetch_array($result1, MYSQLI_BOTH)) 
+			{
+			    $total = $row1['total'];
 
 
-																}
+				//$query1 = "SELECT * FROM ticket WHERE ticket_qty='$total'";
+				
+				//$sql_result1 = mysqli_query($con , $query1);
+				echo "$total";
+				//$total_ticket=$total-$ticketquan;
+				//echo "$total_ticket";
+				if(($total-$ticketquan)>=0){
+
+				header("refresh:2; url=user.php");
+	 			die("Ticket have been sold out!");
 
 
+			}
 
+		else
 
-
-
-
-
-
-
-
-		$query1 = "SELECT * FROM ticket WHERE ticket_qty='$total'";
-		$sql_result1 = mysqli_query($con , $query1);
-
-		if(mysqli_num_rows($sql_result1)==0){
-			
-
-
-			header("refresh:2; url=user.php");
- 			die("Ticket have been sold out!");
-
-
-		}
-
-
-
-		else{
+		{
 //sampai sini sahaja
 
 
-	$sql="INSERT INTO user_ticket VALUES(null, '$email_exist', '$ticketid')";
+		$sql="INSERT INTO user_ticket VALUES(null, '$email_exist', '$ticketid')";
 
 
-	$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysqli_error($con));
+		$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysqli_error($con));
 
-	if($result)
-		{
-	 	header("refresh:2; url=user.php");
-	 	
-		die("You successfully buy a ticket to Tomorrowland!");
-		mysqli_close($con);
+		if($result)
+			{
+		 	header("refresh:2; url=user.php");
+		 	echo "$ticketid";
+			die("You successfully buy a ticket to Tomorrowland!");
+			mysqli_close($con);
 
 
-		}
-	else
-	 	{
-	 	echo "Error in adding new ticket. Please try to again.";
-	 	header("refresh:2; url=event.php");
-		}
+			}
+		else
+		 	{
+		 	echo "Error in adding new ticket. Please try to again.";
+		 	header("refresh:2; url=event.php");
+			}
 	}
 }
-	}
 
 ?>
  <?php //put right before close </body> tag
@@ -117,9 +108,10 @@ else
 }
     
 
-else
+
  echo "No session exist or session is expired. Please log in again";
  header("refresh:2.0; url:../signin.html");
+}
 ?> 
 </body>
 
