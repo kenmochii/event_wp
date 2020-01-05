@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2020 at 05:13 PM
+-- Generation Time: Jan 05, 2020 at 09:17 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -41,9 +41,10 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`ticket_id`, `ticket_type`, `ticket_price`, `ticket_desc`, `ticket_qty`) VALUES
-('GA001', 'General Admission', 39, '10 glowtick\r\n\r\nFree mineral water', 5000),
-('VIP001', 'VIP', 99, 'Exclusive Viewing Area\r\n\r\nLunch and Drink coupons\r\n\r\nLockers (free of charge, limited quantity available)\r\n\r\nBackstage Access\r\n\r\nVIP Lounge', 5000),
-('VIPL001', 'VIP Lite', 49, 'Exclusive Viewing Area\r\n\r\nLunch and Drink coupons\r\n\r\nLockers (free of charge, limited quantity available)', 5000);
+('GA001', 'General Admission', 39, '10 glowtickFree mineral water', 3),
+('SUL001', 'Sultan VIP', 88, 'Hi awak, ini adalah percubaan dari pihak saya untu', 2),
+('VIP001', 'VIP', 99, 'Exclusive Viewing AreaLunch and Drink couponsLockers (free of charge, limited quantity available)Backstage AccessVIP Lounge', 2),
+('VIPL001', 'VIP Lite', 49, 'Exclusive Viewing AreaLunch and Drink couponsLockers (free of charge, limited quantity available)', 0);
 
 -- --------------------------------------------------------
 
@@ -96,7 +97,12 @@ CREATE TABLE `user_ticket` (
 --
 
 INSERT INTO `user_ticket` (`purchase_id`, `email`, `ticket_id`) VALUES
-(1, 'abdul@gmail.com', 'GA001');
+(13, 'abdul@gmail.com', 'GA001'),
+(14, 'abdul@gmail.com', 'VIP001'),
+(15, 'abdul@gmail.com', 'VIP001'),
+(16, 'b@b.b', 'GA001'),
+(17, 'b@b.b', 'GA001'),
+(18, 'test@a.com', 'GA001');
 
 --
 -- Indexes for dumped tables
@@ -119,8 +125,6 @@ ALTER TABLE `user`
 -- Indexes for table `user_ticket`
 --
 ALTER TABLE `user_ticket`
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `ticket_id` (`ticket_id`),
   ADD UNIQUE KEY `purchase_id` (`purchase_id`);
 
 --
@@ -131,18 +135,7 @@ ALTER TABLE `user_ticket`
 -- AUTO_INCREMENT for table `user_ticket`
 --
 ALTER TABLE `user_ticket`
-  MODIFY `purchase_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `user_ticket`
---
-ALTER TABLE `user_ticket`
-  ADD CONSTRAINT `email_fk` FOREIGN KEY (`email`) REFERENCES `user` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ticket_fk` FOREIGN KEY (`ticket_id`) REFERENCES `ticket` (`ticket_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `purchase_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
