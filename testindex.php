@@ -726,12 +726,6 @@
 
 
 ?>
-
-
-
-
-
-
 			<div class="col-lg-4 col-md-6">
 				<!-- Pricing Item -->
 				<div class="pricing-item featured">
@@ -749,7 +743,7 @@
 					<div class="pricing-body">
 						<!-- Feature List -->
 						<ul class="feature-list m-0 p-0">
-							<li><p><span class="fa fa-check-circle available"></span><?php echo "$desc";?></p></li>
+							<li><p><?php echo "$desc";?></p></li>
 							
 						</ul>
 					</div>

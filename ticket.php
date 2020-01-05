@@ -179,7 +179,7 @@ if(isset($_SESSION['email']))
                                             <td>
                                                 <input type="text" name="ticketprice" value="<?php echo "$price"?>"/></td>
 
-                                            <td><input type="text" name="ticketdesc" value="<?php echo "$desc"?>"/></td>
+                                            <td><textarea name="ticketdesc" maxlength="50"><?php echo "$desc"?></textarea></td>
 
                                             <td><input type="text" name="ticketqty" value="<?php echo "$qty"?>"/></td>
                                              
@@ -362,7 +362,7 @@ else
      <input type="text" name="tprice" id="tprice" class="form-control">
      <br /> 
      <label>Description</label>
-     <textarea name="tdesc" id="tdesc" class="form-control"/></textarea>
+     <textarea maxlength="20" name="tdesc" id="tdesc" class="form-control"/></textarea>
      <br />  
      <label>Quantity</label>
      <input type="text" name="tqty" id="tqty" class="form-control" />
