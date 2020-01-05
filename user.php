@@ -67,7 +67,7 @@ if(isset($_SESSION['email']))
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                    <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                                 </li>
                             </ul>
                             <!-- /.dropdown-user -->
@@ -106,7 +106,7 @@ if(isset($_SESSION['email']))
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="page-header">
-                                    Dashboard <small>Summary of your App</small>
+                                    Dashboard 
                                 </h1>
                             </div>
                         </div>
