@@ -85,10 +85,9 @@ $result=mysqli_query($con,$sql) or die("cannot execute sql");
                         <ul class="nav" id="main-menu">
 
                             <li>
-                                <a href="#"><i class="fa fa-sitemap"></i> Dashboard</a>
                                 
                                     <li>
-                                        <a href="myticket.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
+                                        <a href="user.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
                                     </li>
 
                                     <li>
