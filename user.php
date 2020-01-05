@@ -17,8 +17,7 @@ if(isset($_SESSION['email']))
     
 
 ?>
-
-        <!DOCTYPE html>
+ <!DOCTYPE html>
         <html>
         <head>
             <meta charset="utf-8" />
@@ -45,13 +44,7 @@ if(isset($_SESSION['email']))
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-                     
-                        
-
                         <a class="navbar-brand" href="index.html"> <strong><i class="fa fa-comments"></i><?php echo $_SESSION['fname'];?> </strong></a>
-                      
-
                     </div>
 
                     <ul class="nav navbar-top-links navbar-right"> 
@@ -63,6 +56,7 @@ if(isset($_SESSION['email']))
                             <ul class="dropdown-menu dropdown-user">
                                 <li><a href="userprofile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
+                              
                                 <li class="divider"></li>
                                 <li>
                                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -79,10 +73,8 @@ if(isset($_SESSION['email']))
                         <ul class="nav" id="main-menu">
 
                             <li>
-                                <a href="#"><i class="fa fa-sitemap"></i> Dashboard</a>
-                                
                                     <li>
-                                        <a href="myticket.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
+                                        <a href="user.php"><i class="fa fa-fw fa-file"></i>My Ticket</a>
                                     </li>
 
                                     <li>
@@ -104,70 +96,27 @@ if(isset($_SESSION['email']))
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="page-header">
-                                    Dashboard 
-                                </h1>
+                                    My Ticket</h1>
                             </div>
                         </div>
-                        
-                        
-                        <!-- /. ROW  -->
-
                         <div class="row">
-                            <div class="col-md-3 col-sm-12 col-xs-12">
-                                <div class="panel panel-primary text-center no-boder bg-color-green green">
-                                    <div class="panel-left pull-left green">
-                                        <i class="fa fa-bar-chart-o fa-5x"></i>
-                                        
-                                    </div>
-                                    <div class="panel-right pull-right">
-                                         <!--<h3><?php echo "$total"?></h3>-->
-                                       <strong> Registered </strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-12 col-xs-12">
-                                <div class="panel panel-primary text-center no-boder bg-color-blue blue">
-                                      <div class="panel-left pull-left blue">
-                                        <i class="fa fa-shopping-cart fa-5x"></i>
-                                        </div>
-                                        
-                                    <div class="panel-right pull-right">
-                                    <h3>52,160 </h3>
-                                       <strong> Sales</strong>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-12 col-xs-12">
-                                <div class="panel panel-primary text-center no-boder bg-color-red red">
-                                    <div class="panel-left pull-left red">
-                                        <i class="fa fa fa-comments fa-5x"></i>
-                                       
-                                    </div>
-                                    <div class="panel-right pull-right">
-                                     <h3>15,823 </h3>
-                                       <strong> Comments </strong>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-12 col-xs-12">
-                                <div class="panel panel-primary text-center no-boder bg-color-brown brown">
-                                    <div class="panel-left pull-left brown">
-                                        <i class="fa fa-users fa-5x"></i>
-                                        
-                                    </div>
-                                    <div class="panel-right pull-right">
-                                    <h3>36,752 </h3>
-                                     <strong>No. of Visits</strong>
-
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Default Panel
                         </div>
-                        
-                    
-                <!--/.row-->
+                        <div class="panel-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                        </div>
+                        <div class="panel-footer">
+                            Panel Footer
+                        </div>
+                    </div>
+                </div>
+              
+               
+            </div>
+                   <!-- /. ROW  -->
                         <div class="row">
                             <div class="col-md-4 col-sm-12 col-xs-12">
                                 <div class="panel panel-default">
@@ -209,75 +158,6 @@ if(isset($_SESSION['email']))
                                 </div>
 
                             </div>
-                            <div class="col-md-8 col-sm-12 col-xs-12">
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        Responsive Table Example
-                                    </div> 
-                                    <div class="panel-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>S No.</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>User Name</th>
-                                                        <th>Email ID.</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>John</td>
-                                                        <td>Doe</td>
-                                                        <td>John15482</td>
-                                                        <td>name@site.com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Kimsila</td>
-                                                        <td>Marriye</td>
-                                                        <td>Kim1425</td>
-                                                        <td>name@site.com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Rossye</td>
-                                                        <td>Nermal</td>
-                                                        <td>Rossy1245</td>
-                                                        <td>name@site.com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>Richard</td>
-                                                        <td>Orieal</td>
-                                                        <td>Rich5685</td>
-                                                        <td>name@site.com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>5</td>
-                                                        <td>Jacob</td>
-                                                        <td>Hielsar</td>
-                                                        <td>Jac4587</td>
-                                                        <td>name@site.com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>6</td>
-                                                        <td>Wrapel</td>
-                                                        <td>Dere</td>
-                                                        <td>Wrap4585</td>
-                                                        <td>name@site.com</td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                         <!-- /. ROW  -->
                         <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
@@ -307,15 +187,14 @@ if(isset($_SESSION['email']))
             <!-- Custom Js -->
             <script src="assets/js/custom-scripts.js"></script>
 
-        <?php //put right before close </body> tag
-
-}
+    <?php //put right before close </body> tag
+    
+    }
     
 
 else
- echo "No session exist or session is expired. Please log in again";
- header("refresh:2.0; url:../signin.html");
+     echo "No session exist or session is expired. Please log in again";
+     header("refresh:2.0; url:../signin.html");
 ?> 
 </body>
-
 </html>

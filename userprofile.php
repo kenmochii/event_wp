@@ -114,14 +114,14 @@ $result=mysqli_query($con,$sql) or die("cannot execute sql");
                 </div> 
                  <!-- /. ROW  -->
               <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Your Details Information
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <form method="POST" action="updateprofile.php">
                                         <div class="form-group">
                                             <label>Email cannot be update. Please contact support for to change email.</label>
