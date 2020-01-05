@@ -1,3 +1,10 @@
+<?php
+session_start();
+//$_SESSION["usertype"];
+if(isset($_SESSION['email']))
+{
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,3 +103,11 @@
     <script src="js/custom.js"></script>
 	</body>
 	</html>
+
+     <?php //put right before close </body> tag
+}
+
+else
+ echo "No session exist or session is expired. Please log in again";
+ header("refresh:2.0; url:../signin.html");
+?> 
