@@ -1,22 +1,28 @@
  <?php
-
-
- //$con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
-
-    // $sql="SELECT * FROM user";
- 
- //$result=mysqli_query($con,$sql) or die("cannot execute sql");
-   // $total=mysqli_num_rows($result);
-
-
-//call this function to check if session is exists or not
 session_start();
 //$_SESSION["usertype"];
 if(isset($_SESSION['email']))
 {
-    
+   
 
-?>
+
+ $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
+
+$id=$_SESSION['email'];
+
+$sql="SELECT * FROM user WHERE email LIKE '%$id%'";
+
+$result=mysqli_query($con,$sql) or die("cannot execute sql");
+
+ $data=mysqli_fetch_array($result,MYSQLI_BOTH);
+    $email=$data[0];
+    $pwd=$data[1];
+    $fname=$data[2];
+    $lname=$data[3];
+    $pnum=$data[5];
+    $gender=$data[6];
+
+?> 
  <!DOCTYPE html>
         <html>
         <head>
@@ -81,7 +87,6 @@ if(isset($_SESSION['email']))
 
                                         <a href="event.php"><i class="fa fa-qrcode"></i>Event</a>
                                     </li>
-                                
                             </li>
                         </ul>
 
@@ -99,23 +104,47 @@ if(isset($_SESSION['email']))
                                     My Ticket</h1>
                             </div>
                         </div>
-                        <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Default Panel
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            Panel Footer
-                        </div>
+                            <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Ticket #<?php echo "$id"?>
+                                    <input type="hidden" class="form-control" name="tid" value=<?php echo "$id"?>>
+                                    </div>
+                                    <div class="panel-heading">
+                                        Default Panel
+                                    </div>
+                                        <div class="panel-body">
+                                        <div class="list-group">
+                                            <h3>Type</h3>
+                                            <p><?php echo "$type"?></p>
+                                        </div>
+                                        <div class="list-group">
+                                            <h3>Price</h3>
+                                            <p>RM<?php echo "$price"?></p>
+                                        </div>
+                                        <div class="list-group">
+                                            <h3>Description</h3>
+                                            <p><?php echo "$desc"?></p>
+                                        </div>
+
+                                        <br>
+                                    </div>
+                                    <div class="panel-footer">
+                                        Panel Footer
+                                    </div>
+                                </div>
+                            </div>   
                     </div>
-                </div>
-              
-               
-            </div>
+            
+                    <div>
+                        
+                            You have no ticket yet
+
+                    </div>
+
+
+
                    <!-- /. ROW  -->
                         <!-- /. ROW  -->
                         <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
