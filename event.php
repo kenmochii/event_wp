@@ -1,17 +1,9 @@
- <?php
+<?php
 session_start();
 //$_SESSION["usertype"];
 if(isset($_SESSION['email']))
 {
     //echo "Welcome "; echo $_SESSION['fname'];
-
-
- $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
-
-     $sql="SELECT * FROM user";
- 
- $result=mysqli_query($con,$sql) or die("cannot execute sql");
-    $total=mysqli_num_rows($result);
 ?>
 
         <!DOCTYPE html>
@@ -107,39 +99,61 @@ if(isset($_SESSION['email']))
                         <!-- /. ROW  -->
                     
                 <!--/.row-->
-                        <div class="row">
-                            <div class="col-md-4 col-sm-12 col-xs-12">
+ <div class="row">
+                    <?php
+
+
+                    $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
+
+                    $sql="SELECT * FROM ticket";
+
+                    $result=mysqli_query($con,$sql) or die("cannot execute sql");
+
+                    while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
+                    {               
+                     $id=$data[0];
+                     $type=$data[1];
+                     $price=$data[2];
+                     $desc=$data[3];
+                     $qty=$data[4];
+
+                     ?>
+                       <form method="post" action="buy.php">
+                            <div class="col-md-4 col-sm-4">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        Ticket 
+                                        Ticket #<?php echo "$id"?>
+                                        <input type="hidden" class="form-control" name="tid" value=<?php echo "$id"?>>
                                     </div>
+
                                     <div class="panel-body">
                                         <div class="list-group">
+                                            <h3>Type</h3>
+                                            <p><?php echo "$type"?></p>
+                                        </div>
+                                        <div class="list-group">
+                                            <h3>Price</h3>
+                                            <p>RM<?php echo "$price"?></p>
+                                        </div>
+                                        <div class="list-group">
+                                            <h3>Description</h3>
+                                            <p><?php echo "$desc"?></p>
+                                        </div>
 
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">7 minutes ago</span>
-                                                <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <span class="badge">16 minutes ago</span>
-                                                <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                            </a>
-                                        </div>
-                                        <div class="text-right" id="field1">Quantity
-                                            <button type="button" id="sub" class="sub">-</button>
-                                            <input type="number" id="1" value="1" min="1" max="3" />
-                                            <button type="button" id="add" class="add">+</button>
-                                        </div>
                                         <br>
                                         <div class="text-right">
-                                            <a href="#" class="btn btn-default">Reset</a>
-                                            <a href="#" class="btn btn-primary">Buy</a>
+                                            <button type="submit" class="btn btn-default">Buy</button>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                        </div>
+                       </form>
+                <?php 
+                    
+                    }
+                    ?>
+                     </div>
                         <!-- /. ROW  -->
                         <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
                     </div>
