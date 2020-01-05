@@ -3,7 +3,7 @@ session_start();
 //$_SESSION["usertype"];
 if(isset($_SESSION['email']))
 {
-    //echo "Welcome "; echo $_SESSION['fname'];
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -132,7 +132,8 @@ if(isset($_SESSION['email']))
                                             <th>Type</th>
                                             <th>Price</th>
                                             <th>Description</th>
-                                            <th>Quantity</th>
+                                            <th>Total Quantity Limit</th>
+                                            <th>Total Ticket Purchased </th>
                                             <th>Manage</th>
                                         </tr>
                                     </thead>
@@ -144,16 +145,28 @@ if(isset($_SESSION['email']))
 
                                         $sql="SELECT * FROM ticket";
 
+                                        
+
                                         $result=mysqli_query($con,$sql) or die("cannot execute sql");
+                                       
 
                                         while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
-{                                       $id=$data[0];
+                                        {
+                                        $id=$data[0];
                                         $type=$data[1];
                                         $price=$data[2];
                                         $desc=$data[3];
                                         $qty=$data[4];
 
-?>
+                                        $sql1="SELECT COUNT(ticket_id) as totalpurchased FROM user_ticket WHERE ticket_id='$id'";
+ 
+                                        $result1=mysqli_query($con,$sql1) or die("cannot execute sql");
+
+                                        $totalpurchased = 0;
+                                        while ($row = mysqli_fetch_array($result1, MYSQLI_BOTH)) {
+                                        $totalpurchased = $row['totalpurchased'];
+
+                                                            ?>
                                         <tr class="odd gradeX">
                                         <form method="POST" action="updateticket.php">
                                             <td> <?php echo "$id"?>
@@ -169,16 +182,23 @@ if(isset($_SESSION['email']))
                                             <td><input type="text" name="ticketdesc" value="<?php echo "$desc"?>"/></td>
 
                                             <td><input type="text" name="ticketqty" value="<?php echo "$qty"?>"/></td>
+                                             
+                                             <td> <?php echo "$totalpurchased"?>
+
+                                            </td>
+
+
                                             <td>
+
 
                                                 <button class="btn btn-default"><i class=" fa fa-refresh "></i>Update</button> 
 
-                                                <a href="delete.php?e_email=<?php echo "$email"?>" class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</a>
+                                                <a href="deleteticket.php?ticketid=<?php echo "$id"?>" class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</a>
 
                                             </td>
                                         </form>
                                         </tr>
-                                   <?php }
+                                       <?php }}
                                     ?>
                                     </tbody>
 
