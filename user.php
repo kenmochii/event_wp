@@ -3,7 +3,6 @@ session_start();
 //$_SESSION["usertype"];
 if(isset($_SESSION['email']))
 {
-   
 
 ?> 
  <!DOCTYPE html>
@@ -86,14 +85,14 @@ if(isset($_SESSION['email']))
 
                         <div class="row">
                              <div class="col-md-12">
-                                                                <h1 class="page-header">
-                                                                    My Ticket</h1>
+                                    <h1 class="page-header">
+                                        My Ticket</h1>
                                                             </div>
                                                         </div>
-                                                            <div class="row">
-
+        <div class="row">
 
                             <?php
+
                             $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
 
                                 $id=$_SESSION['email'];
@@ -106,13 +105,10 @@ if(isset($_SESSION['email']))
                                  while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
                                  {
                                     $purchaseid=$data[0];
-                                    $email=$data[1];
-                                    $ticketid=$data[2];
-
-                                       
-
+                                    $email=$data[2];
+                                    $ticketid=$data[3];
                                     if($purchaseid)
-                                                {
+                                        {
                                         $sql1="SELECT * FROM ticket WHERE ticket_id LIKE '%$ticketid%'";
 
                                         $result1=mysqli_query($con,$sql1) or die("cannot execute sql");
@@ -124,9 +120,8 @@ if(isset($_SESSION['email']))
                                             $price=$data1[2];
                                              $desc=$data1[3];
                                             $qty=$data1[4];
-
                                                     ?>
-                                                           
+
                                                             <div class="col-md-4 col-sm-4">
                                                                 <div class="panel panel-default">
                                                                     <div class="panel-heading">
@@ -146,29 +141,22 @@ if(isset($_SESSION['email']))
                                                                             <h3>Description</h3>
                                                                             <p><?php echo "$desc"?></p>
                                                                         </div>
-
                                                                         <br>
                                                                     </div>
                                                                 </div>
                                                             </div>   
-                                                    
-                                                    <?php }
-                                                }
-                else
-                {
-                    ?>
-            
-                    <div>
-                        
-                            <h1>You have no ticket yet<h1>
-
-                    </div></div>
+                                    <?php 
+                                }
+                                        }
+                                         else
+                                             
+                                                ?>
+                                                <div><h1>You have no ticket yet<h1> </div>
+                                    </div>
 <?php
-}}
-
+                                  
+                             }
 ?>
-
-
                    <!-- /. ROW  -->
                         <!-- /. ROW  -->
                         <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>

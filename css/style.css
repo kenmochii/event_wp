@@ -2583,7 +2583,7 @@ select.form-control:not([size]):not([multiple]) {
 /* Controls
 ---------------------------------------------------------------------- */
 .controls {
-  text-align: center;
+  text-align: right;
   margin-bottom: 40px;
 }
 
@@ -2592,7 +2592,7 @@ select.form-control:not([size]):not([multiple]) {
   border: none;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
-  margin-right: 25px;
+  margin-right: 100px;
 }
 
 .controls .control:focus {
