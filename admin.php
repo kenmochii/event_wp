@@ -254,7 +254,7 @@ while ($row_qty = mysqli_fetch_array($result_qty, MYSQLI_BOTH)) {
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Ticket ID</th>
-                                            <th>Manage</th>
+                                <!--            <th>Manage</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -287,9 +287,9 @@ while ($row_qty = mysqli_fetch_array($result_qty, MYSQLI_BOTH)) {
                                              <td><?php echo "$ticketid"?>
                                                <input type="hidden" name="ticketid" value="<?php echo "$ticketid"?>"/>
                                              </td>
-                                            <td>
+                                    <!--        <td>
                                                 <a href="deleteuserticket.php?purchaseid=<?php echo "$pid"?>" class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</a>
-                                            </td>
+                                            </td> -->
                                         </form>
                                         </tr>
                                        <?php }
