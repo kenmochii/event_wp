@@ -8,9 +8,25 @@ if(isset($_SESSION['email']))
 
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+	<link href="assets/css/font-awesome.css" rel="stylesheet" />
+	 <link href="assets/css/loading.css" rel="stylesheet" />
+</head>
 
 <body>
+<div class="loader">   
+	<span class="box"></span>   
+	<span class="box"></span>  
+<div class="code"> 
+<img src="assets/img/no_background.png" width="120px">
+</div>    
+<span class="txt">We are trying to find ticket for you..</span>
+</div>
+
+	<video id="videoBG" autoplay muted loop>
+		<source src="assets/vid/tommorowland_vid.mp4" type="video/mp4">
+		</video>
+
 
 <?php
 
@@ -29,10 +45,11 @@ $fname=$_SESSION["fname"];
 $query = "SELECT * FROM user_ticket WHERE email='$email_exist' ";
 $sql_result = mysqli_query($con , $query);
 
-if (mysqli_num_rows($sql_result)>10) //to return the query result in number of rows
+if (mysqli_num_rows($sql_result)>=6) //to return the query result in number of rows
 {
-	header("refresh:2.0; url=user.php");
- 	die("You already have already reach the limit purchase tickets");
+	header("refresh:2.0; url=user.php?error=");
+ 	//die("You already have already reach the limit purchase tickets");
+ 	die();
 
 }
 
@@ -62,13 +79,14 @@ else
 				//$query1 = "SELECT * FROM ticket WHERE ticket_qty='$total'";
 				
 				//$sql_result1 = mysqli_query($con , $query1);
-				echo "$total";
+				//echo "$total";
 				//$total_ticket=$total-$ticketquan;
 				//echo "$total_ticket";
 				if(($total-$ticketquan)>=0){
 
-				header("refresh:2; url=user.php");
-	 			die("Ticket have been sold out!");
+				header("refresh:2; url=user.php?error2=");
+	 			//die("Ticket have been sold out!");
+	 			die();
 
 
 			}
@@ -86,9 +104,10 @@ else
 
 		if($result)
 			{
-		 	header("refresh:2; url=user.php");
-		 	echo "$ticketid";
-			die("You successfully buy a ticket to Tomorrowland!");
+		 	header("refresh:2; url=user.php?success=");
+		 	//echo "$ticketid";
+			//die("You successfully buy a ticket to Tomorrowland!");
+			die();
 			mysqli_close($con);
 
 
@@ -105,9 +124,7 @@ else
  <?php //put right before close </body> tag
 
 }
-    
-
-
+ 
  echo "No session exist or session is expired. Please log in again";
  header("refresh:2.0; url:../signin.php");
 }

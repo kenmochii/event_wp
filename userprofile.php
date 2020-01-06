@@ -54,7 +54,7 @@ $result=mysqli_query($con,$sql) or die("cannot execute sql");
                             <span class="icon-bar"></span>
                         </button>
 
-                        <a class="navbar-brand" href="index.html"> <strong><i class="fa fa-comments"></i><?php echo $_SESSION['fname'];?> </strong></a>
+                         <a class="navbar-brand" href="user.php" align="center"> <strong>Tomorrowland</strong></a>
                       
 
                     </div>
@@ -144,7 +144,7 @@ $result=mysqli_query($con,$sql) or die("cannot execute sql");
                                         </div>
                                          <div class="form-group">
                                             <label>Password</label>
-                                            <input class="form-control" type="Password" name="p_pnum" value=<?php echo "$pwd"?>>
+                                            <input class="form-control" type="Password" name="password" value=<?php echo "$pwd"?>>
                                         </div>
                                     
                                     <div class="form-group">

@@ -33,13 +33,8 @@ if(isset($_SESSION['email']))
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-                     
-                        
-
-                        <a class="navbar-brand" href="index.html"> <strong><i class="fa fa-comments"></i><?php echo $_SESSION['fname'];?> </strong></a>
+                        <a class="navbar-brand" href="user.php" align="center"> <strong>Tomorrowland</strong></a>
                       
-
                     </div>
 
                     <ul class="nav navbar-top-links navbar-right"> 

@@ -32,7 +32,7 @@ if(isset($_SESSION['email']))
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html"> <strong><i class="fa fa-comments"></i><?php echo $_SESSION['fname'];?> </strong></a>
+                        <a class="navbar-brand" href="user.php" align="center"> <strong>Tomorrowland</strong></a>
                     </div>
 
                     <ul class="nav navbar-top-links navbar-right"> 
@@ -85,9 +85,46 @@ if(isset($_SESSION['email']))
 
                         <div class="row">
                             <div class="col-md-12">
-                                    <h1 class="page-header">
-                                        My Ticket</h1>
-                            </div>
+
+                    <?php 
+                    if(isset($_GET['error']))
+                      { ?>
+                    <div class="row">
+                    <div class="alert alert-danger alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Error!</strong> You already have already reach the limit purchase tickets.
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+                    </div>
+                     <?php }?>
+
+                     <?php 
+                    if(isset($_GET['error2']))
+                      { ?>
+                    <div class="row">
+                    <div class="alert alert-danger alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Error!</strong> Ticket have been sold out.
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+                    </div>
+                     <?php }?>
+
+                     <?php 
+                    if(isset($_GET['success']))
+                      { ?>
+                    <div class="row">
+                    <div class="alert alert-success alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Success!</strong> You successfully buy a ticket to Tomorrowland!.
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+                    </div>
+                     <?php }?>
+
+                        <h1 class="page-header">
+                        My Ticket</h1>
+                        </div>
                         </div>
                         <div class="row">
 
