@@ -131,20 +131,20 @@ $result=mysqli_query($con,$sql) or die("cannot execute sql");
                                         </div>
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input class="form-control" name="f_fname" value=<?php echo "$fname"?>>
+                                            <input class="form-control" name="f_fname" value="<?php echo $fname; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input class="form-control" name="l_lname" value=<?php echo "$lname"?>>
+                                            <input class="form-control" name="l_lname" value="<?php echo $lname; ?>">
                                         </div>
                                            
                                          <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input class="form-control" name="p_pnum" value=<?php echo "$pnum"?>>
+                                            <input class="form-control" name="p_pnum" value="<?php echo $pnum; ?>">
                                         </div>
                                          <div class="form-group">
                                             <label>Password</label>
-                                            <input class="form-control" type="Password" name="password" value=<?php echo "$pwd"?>>
+                                            <input class="form-control" type="Password" name="password" value="<?php echo $pwd; ?>">
                                         </div>
                                     
                                     <div class="form-group">
