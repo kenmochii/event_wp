@@ -209,6 +209,7 @@ if(isset($_SESSION['email']))
                         </div>
                     </div>
                     <!--End Advanced Tables -->
+                    
                     <div align="right">
      <button type="button" name="addticket" id="addtic" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-success">Add</button>
     </div>

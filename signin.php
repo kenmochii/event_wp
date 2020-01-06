@@ -20,7 +20,13 @@ if(!isset($_SESSION['email']))
     <link href="plugins/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
- 
+
+      <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+      <!-- Bootstrap Styles-->
+   <link href="assets/css/bootstrap.css" rel="stylesheet" /> 
+
   <link href="css/style.css" rel="stylesheet">
   
    <!-- Vendor CSS-->
@@ -46,21 +52,52 @@ if(!isset($_SESSION['email']))
 	<div class="page-wrapper bg-banner-one p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
+                    <?php 
+
+                    if(isset($_GET['error']))
+                      { ?>
+                    <div class="row row-space">
+                    <div class="alert alert-danger danger-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Error!</strong> your email/password is incorrect.
+                    </div>
+
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+                      </div>
+                     <?php }
+                     
+
+                     if(isset($_GET['error2']))
+                      { ?>
+                    <div class="row row-space">
+                    <div class="alert alert-danger danger-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Error!</strong> incorrect password.
+                    </div>
+
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+                      </div>
+                     <?php }
+                     ?>
+
                 <div class="card-body">
                     <h2 class="title">Log In Form</h2>
                     <form method="POST" name="register" action="signinprocess.php">
                         <div class="row row-space">
                             <div class="col-3">
-                                <div class="input-group">
-                                    <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email" id="myEmail" onkeyup="check()">
+                                <div class=""> <!-- "input-group" -->
+                                    <label class="">Email</label>  <!-- "label" -->
+                                    <input class="input--style-4" type="text" name="email" id="myEmail" onkeyup="check()">
                                 </div>
                             </div>
                         </div>
+                      </br>
                         <div class="row row-space">
                             <div class="col-3">
-                                <div class="input-group">
-                                    <label class="label">Password</label>
+                                <div class=""> <!-- "input-group" -->
+                                    <label class="">Password</label> <!-- "label" -->
                                     <input class="input--style-4" type="password" name="password">
                                 </div>
                             </div>
@@ -88,9 +125,20 @@ if(!isset($_SESSION['email']))
                             
                 </div>
             </div>
+          </div>
         </div>
     </div>
     
+
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
 
      <!-- Jquery JS-->
     <script src="plugins/vendor/jquery/jquery.min.js"></script>
@@ -116,6 +164,3 @@ else
 }
 exit();
 ?> 
-
-
-

@@ -22,6 +22,7 @@ if (!$con) {
 
 $ticketid=$_POST["tid"];
 $email_exist=$_SESSION["email"];
+$fname=$_SESSION["fname"];
 //$ticketno=$_SESSION['ticket_no'];
 
 
@@ -46,8 +47,6 @@ else
 			$ticketquan=$row[4];
 
 			
-			
-
 		}
 		///////////////////////////////
 		$sql1="SELECT COUNT(ticket_id) as total FROM user_ticket WHERE ticket_id='$tid'";
@@ -80,7 +79,7 @@ else
 //sampai sini sahaja
 
 
-		$sql="INSERT INTO user_ticket VALUES(null, '$email_exist', '$ticketid')";
+		$sql="INSERT INTO user_ticket VALUES(null, '$fname' ,'$email_exist', '$ticketid')";
 
 
 		$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysqli_error($con));

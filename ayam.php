@@ -24,20 +24,27 @@ while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
 	$total = 0;
 	while ($row = mysqli_fetch_array($result1, MYSQLI_BOTH)) {
 	    $total = $row['total'];
-
-
+	    $amount=$total + $total;
+	    
 	    //echo "test";
-	    echo  "$total<br>";
+	    echo  "$total
+	    <br>";
+	   $amount++;
+		
+}
+?> </br> 
+</br>
+<?php 
+
+
+
+
 
 }
 
+echo "total is ";
 
-
-
-
-}
-
-
+echo "$amount";
 
 
  
