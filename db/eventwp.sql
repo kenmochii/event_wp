@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 09:28 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Host: localhost
+-- Generation Time: Jan 06, 2020 at 07:09 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,10 +41,9 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`ticket_id`, `ticket_type`, `ticket_price`, `ticket_desc`, `ticket_qty`) VALUES
-('GA001', 'General Admission', 39, '10 glowtickFree mineral water', 3),
-('SUL001', 'Sultan VIP', 88, 'Hi awak, ini adalah percubaan dari pihak saya untu', 2),
-('VIP001', 'VIP', 99, 'Exclusive Viewing AreaLunch and Drink couponsLockers (free of charge, limited quantity available)Backstage AccessVIP Lounge', 2),
-('VIPL001', 'VIP Lite', 49, 'Exclusive Viewing AreaLunch and Drink couponsLockers (free of charge, limited quantity available)', 0);
+('GA001', 'General Admission', 39, '10 glowtick and free mineral water', 10),
+('SUL001', 'Sultan VIP', 88, 'All area privileges and dinner with DJs', 10),
+('VIP001', 'VIP', 99, 'Exclusive backstage entry', 10);
 
 -- --------------------------------------------------------
 
@@ -67,18 +66,23 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`, `gender`) VALUES
-('a@a.com', '123', 'Test', 'Testo Acca', 'Admin', '012345678', 'male'),
+('a@a.com', '123', 'AAAA', 'Testo Account', 'Admin', '012345678', 'male'),
 ('abdul@gmail.com', '123', 'abdul', 'aimanudinnudin', 'User', '0176903894', 'male'),
 ('admin@test.com', '123', 'SDFG', 'HJKL', 'User', '11111111111', 'male'),
 ('aiman.dragonz@gmail.com', 'abc123', 'Muhamad Aiman', 'Remy Shahar', 'Admin', '01110056051', 'Male'),
 ('aimannur@gmail.com', '123', 'aiman', 'nur', 'User', '123102973', 'male'),
-('amir@tm.com', '123', 'amirul', 'aiman', 'User', '0174628261', 'male'),
 ('ayam@gmail.com', '123', 'amir', 'ayam', 'User', '012381288631', 'male'),
-('b@b.b', '123', 'Bboy', 'Boboy', 'User', '1234567890', 'male'),
+('b@b.b', '123', 'Boboiboy Kuasa Empat', 'Mutcho', 'User', '0123456789', 'male'),
+('kam@gmail.com', '123', 'Kambing', 'Besar', 'User', '123', 'Male'),
+('kucing@gmail.com', '123', 'Kucing', 'Parsi', 'User', '01221345832', 'Female'),
+('lembu@gmail.com', '123', 'Lembu Nate', 'Gerilla', 'User', '123', 'Male'),
 ('mushio@gmail.com', '123', 'Mushio', 'Umaga', 'User', '0123456789', 'male'),
+('qw@gmail.com', '123', 'qw', 'wq', 'User', '1111111111', 'Male'),
 ('qwerty@a.com', '123', 'Qwerty', 'Test', 'User', '12344567789', 'female'),
+('tak@gmail.com', '123', 'Nama Saiya Aimi', 'Takksukha Awwak', 'User', '0188767755', 'male'),
 ('test@a.com', '123', 'Test User', 'User First', 'User', '01234567890', 'male'),
-('testuser@user.com', '123', 'User', 'Test Acc', 'User', '01234567890', 'female');
+('testuser@user.com', '123', 'User', 'Test Acc', 'User', '01234567890', 'female'),
+('z@z.z', '123', 'adik saya', 'hudoh', 'User', '123321', 'Female');
 
 -- --------------------------------------------------------
 
@@ -98,8 +102,19 @@ CREATE TABLE `user_ticket` (
 --
 
 INSERT INTO `user_ticket` (`purchase_id`, `fname`, `email`, `ticket_id`) VALUES
-(20, 'abdul', 'abdul@gmail.com', 'GA001'),
-(21, 'abdul', 'abdul@gmail.com', 'VIP001');
+(53, 'Nama Saiya', 'tak@gmail.com', 'GA001'),
+(54, 'Nama Saiya', 'tak@gmail.com', 'SUL001'),
+(55, 'Nama Saiya', 'tak@gmail.com', 'VIP001'),
+(57, 'Nama Saiya', 'tak@gmail.com', 'GA001'),
+(58, 'Nama Saiya', 'tak@gmail.com', 'SUL001'),
+(59, 'Lembu Nate', 'lembu@gmail.com', 'GA001'),
+(60, 'Lembu Nate', 'lembu@gmail.com', 'GA001'),
+(61, 'Lembu Nate', 'lembu@gmail.com', 'GA001'),
+(62, 'Lembu Nate', 'lembu@gmail.com', 'GA001'),
+(63, 'Lembu Nate', 'lembu@gmail.com', 'GA001'),
+(64, 'Lembu Nate', 'lembu@gmail.com', 'GA001'),
+(65, 'abdul', 'abdul@gmail.com', 'GA001'),
+(66, 'abdul', 'abdul@gmail.com', 'GA001');
 
 --
 -- Indexes for dumped tables
@@ -132,7 +147,7 @@ ALTER TABLE `user_ticket`
 -- AUTO_INCREMENT for table `user_ticket`
 --
 ALTER TABLE `user_ticket`
-  MODIFY `purchase_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `purchase_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

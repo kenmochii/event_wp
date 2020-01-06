@@ -141,7 +141,7 @@ if(isset($_SESSION['email']))
 
                                         $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
 
-                                        $sql="SELECT * FROM user";
+                                        $sql="SELECT * FROM user WHERE usertype = 'User'";
 
                                         $result=mysqli_query($con,$sql) or die("cannot execute sql");
 
