@@ -149,11 +149,6 @@
 					<div class="description-two">
 						<p>Brothers Manu and Michiel Beers began making their dreams a reality by teaming up in 2005 for the first ever Tomorrowland held in Boom, Beglium. At the time, Belgium was poised and eager to hold a festival that would excite audiences like Mysteryland was captivating fans in the Netherlands.</p>
 					</div>
-					<ul class="list-inline">
-						<li class="list-inline-item">
-							<a href="#" class="btn btn-main-md">Read more</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>
@@ -644,7 +639,7 @@
 					</div>
 					<!-- Coundown Timer -->
 					<div class="timer"></div>
-					<a href="registration.html" class="btn btn-main-md">Register</a>
+		<!--			<a href="registration.html" class="btn btn-main-md">Register</a> -->
 				</div>
 			</div>
 			<div class="col-lg-5 p-0">
@@ -769,7 +764,7 @@
 				<div class="content-block" href="register.html">
 					<h2>Get Ticket <span class="alternate">Now!</span></h2>
 					<p>Experience the world of EDM</p>
-					<a href="" class="btn btn-main-md">Buy ticket</a>
+		<!--			<a href="" class="btn btn-main-md">Buy ticket</a> -->
 				</div>
 			</div>
 		</div>
@@ -789,7 +784,6 @@
 			<div class="col-12">
 				<div class="section-title">
 					<h3>Our <span class="alternate">Sponsors</span></h3>
-					<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore dolore</p> -->
 				</div>
 			</div>
 		</div>
@@ -881,7 +875,8 @@
 				<!-- Subscribe Content -->
 				<div class="content">
 					<h3>Subscribe to Our <span class="alternate">Newsletter</span></h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor</p>
+					<p>Stay updated on the latest developments and special offers! You will also will be eligible to get our merchandise for free!
+ </p>
 				</div>
 			</div>
 			<div class="col-md-6 ml-auto align-self-center">
@@ -892,7 +887,7 @@
 					</div>
 					<div class="col-lg-4 col-md-12">
 						<div class="subscribe-button">
-							<button class="btn btn-main-md">Subscribe</button>
+							<button href="https://www.https://www.youtube.com/c/muhdaimanrs?sub_confirmation=1" class="btn btn-main-md">Subscribe</button>
 						</div>
 					</div>
 				</form>

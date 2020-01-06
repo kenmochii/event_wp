@@ -89,7 +89,7 @@ if(!isset($_SESSION['email']))
                             <div class="col-3">
                                 <div class=""> <!-- "input-group" -->
                                     <label class="">Email</label>  <!-- "label" -->
-                                    <input class="input--style-4" type="text" name="email" id="myEmail" onkeyup="check()">
+                                    <input class="input--style-4" type="text" name="email" required>
                                 </div>
                             </div>
                         </div>
@@ -98,12 +98,12 @@ if(!isset($_SESSION['email']))
                             <div class="col-3">
                                 <div class=""> <!-- "input-group" -->
                                     <label class="">Password</label> <!-- "label" -->
-                                    <input class="input--style-4" type="password" name="password">
+                                    <input class="input--style-4" type="password" name="password" required>
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn-main-md" type="submit" id="submitbutton" onclick="verify()" disabled>Submit</button>
+                            <button class="btn btn-main-md" type="submit">Submit</button>
                             <button href="index.php" class="btn btn-main-md" type="reset">Cancel</button>
 
                         </div>
@@ -111,18 +111,6 @@ if(!isset($_SESSION['email']))
                         <br>
                             <a href="register.html"> Don't have an account? Click here to register</a>
                     </form>
-                    <!--Input email JS-->
-                            <script type="text/javascript">
-                              function check() {
-                               if(document.getElementById("myEmail").value==="") { 
-                                        document.getElementById('submitbutton').disabled = true;
-                                        alert("Please insert your input there!");
-                                    } else { 
-                                        document.getElementById('submitbutton').disabled = false;
-                                    }
-                                }
-                            </script>
-                            
                 </div>
             </div>
           </div>
