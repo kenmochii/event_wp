@@ -1,4 +1,4 @@
- <?php
+<?php
 session_start();
 //$_SESSION["usertype"];
 if(isset($_SESSION['email']))
@@ -84,82 +84,76 @@ if(isset($_SESSION['email']))
 
 
                         <div class="row">
-                             <div class="col-md-12">
+                            <div class="col-md-12">
                                     <h1 class="page-header">
                                         My Ticket</h1>
-                                                            </div>
-                                                        </div>
-        <div class="row">
+                            </div>
+                        </div>
+                        <div class="row">
 
-                            <?php
+                        <?php
 
-                            $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
+                        $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
 
-                                $id=$_SESSION['email'];
+                        $email=$_SESSION['email'];
 
-                                $sql="SELECT * FROM user_ticket WHERE email LIKE '%$id%'";
+                        $sql="SELECT * FROM user_ticket WHERE email LIKE '%$email%'";
 
 
-                                $result=mysqli_query($con,$sql) or die("cannot execute sql");
+                        $result=mysqli_query($con,$sql) or die("cannot execute sql");
 
-                                 while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
-                                 {
-                                    $purchaseid=$data[0];
-                                    $email=$data[2];
-                                    $ticketid=$data[3];
-                                    if($purchaseid)
-                                        {
-                                        $sql1="SELECT * FROM ticket WHERE ticket_id LIKE '%$ticketid%'";
+                        while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
+                        {
+                            $purchaseid=$data[0];
+                            //$email=$data[2];
+                            $ticketid=$data[3];
+                        
+                            if($purchaseid)
+                            {
+                                $sql1="SELECT * FROM ticket WHERE ticket_id LIKE '%$ticketid%'";
+                                $result1=mysqli_query($con,$sql1) or die("cannot execute sql");
 
-                                        $result1=mysqli_query($con,$sql1) or die("cannot execute sql");
+                                while($data1=mysqli_fetch_array($result1,MYSQLI_BOTH))
+                                {
+                                    $id=$data1[0];
+                                    $type=$data1[1];
+                                    $price=$data1[2];
+                                    $desc=$data1[3];
+                                    $qty=$data1[4];
+                                ?>
 
-                                         while($data1=mysqli_fetch_array($result1,MYSQLI_BOTH))
-                                         {
-                                           $id=$data1[0];
-                                            $type=$data1[1];
-                                            $price=$data1[2];
-                                             $desc=$data1[3];
-                                            $qty=$data1[4];
-                                                    ?>
-
-                                                            <div class="col-md-4 col-sm-4">
-                                                                <div class="panel panel-default">
-                                                                    <div class="panel-heading">
-                                                                        Purchase ID #<?php echo "$purchaseid"?>
-                                                                    <input type="hidden" class="form-control" name="tid" value=<?php echo "$id"?>>
-                                                                    </div>
-                                                                        <div class="panel-body">
-                                                                        <div class="list-group">
-                                                                            <h3>Type</h3>
-                                                                            <p><?php echo "$type"?></p>
-                                                                        </div>
-                                                                        <div class="list-group">
-                                                                            <h3>Price</h3>
-                                                                            <p>RM<?php echo "$price"?></p>
-                                                                        </div>
-                                                                        <div class="list-group">
-                                                                            <h3>Description</h3>
-                                                                            <p><?php echo "$desc"?></p>
-                                                                        </div>
-                                                                        <br>
-                                                                    </div>
-                                                                </div>
-                                                            </div>   
-                                    <?php 
-                                }
-                                        }
-                                         else
-                                             
-                                                ?>
-                                                <div><h1>You have no ticket yet<h1> </div>
+                                    <div class="col-md-4 col-sm-4">
+                                    <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Purchase ID #<?php echo "$purchaseid"?>
+                                        <input type="hidden" class="form-control" name="tid" value=<?php echo "$id"?>>
                                     </div>
-<?php
-                                  
-                             }
-?>
-                   <!-- /. ROW  -->
+                                    <div class="panel-body">
+                                        <div class="list-group">
+                                            <h3>Type</h3>
+                                            <p><?php echo "$type"?></p>
+                                        </div>
+                                        <div class="list-group">
+                                            <h3>Price</h3>
+                                            <p>RM<?php echo "$price"?></p>
+                                        </div>
+                                        <div class="list-group">
+                                            <h3>Description</h3>
+                                            <p><?php echo "$desc"?></p>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    </div>
+                                    </div>   
+                        <?php 
+                                }
+                            }
+                            else
+                               echo "<h1>You have no ticket yet<h1>";
+                         }  
+                        ?>
+                        </div>
                         <!-- /. ROW  -->
-                        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
                     </div>
                     <!-- /. PAGE INNER  -->
                 </div>

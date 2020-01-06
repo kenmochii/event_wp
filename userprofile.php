@@ -142,6 +142,10 @@ $result=mysqli_query($con,$sql) or die("cannot execute sql");
                                             <label>Phone Number</label>
                                             <input class="form-control" name="p_pnum" value=<?php echo "$pnum"?>>
                                         </div>
+                                         <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control" type="Password" name="p_pnum" value=<?php echo "$pwd"?>>
+                                        </div>
                                     
                                     <div class="form-group">
                                             <label>Gender</label>
