@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 05, 2020 at 09:17 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Host: 127.0.0.1
+-- Generation Time: Jan 06, 2020 at 09:28 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -67,7 +67,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`, `gender`) VALUES
-('a@a.com', '123', 'Test', 'Testo Acca', 'Admin', '01234567890', 'female'),
+('a@a.com', '123', 'Test', 'Testo Acca', 'Admin', '012345678', 'male'),
 ('abdul@gmail.com', '123', 'abdul', 'aimanudinnudin', 'User', '0176903894', 'male'),
 ('admin@test.com', '123', 'SDFG', 'HJKL', 'User', '11111111111', 'male'),
 ('aiman.dragonz@gmail.com', 'abc123', 'Muhamad Aiman', 'Remy Shahar', 'Admin', '01110056051', 'Male'),
@@ -88,6 +88,7 @@ INSERT INTO `user` (`email`, `password`, `fname`, `lname`, `usertype`, `phoneno`
 
 CREATE TABLE `user_ticket` (
   `purchase_id` int(10) NOT NULL,
+  `fname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `ticket_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -96,13 +97,9 @@ CREATE TABLE `user_ticket` (
 -- Dumping data for table `user_ticket`
 --
 
-INSERT INTO `user_ticket` (`purchase_id`, `email`, `ticket_id`) VALUES
-(13, 'abdul@gmail.com', 'GA001'),
-(14, 'abdul@gmail.com', 'VIP001'),
-(15, 'abdul@gmail.com', 'VIP001'),
-(16, 'b@b.b', 'GA001'),
-(17, 'b@b.b', 'GA001'),
-(18, 'test@a.com', 'GA001');
+INSERT INTO `user_ticket` (`purchase_id`, `fname`, `email`, `ticket_id`) VALUES
+(20, 'abdul', 'abdul@gmail.com', 'GA001'),
+(21, 'abdul', 'abdul@gmail.com', 'VIP001');
 
 --
 -- Indexes for dumped tables
@@ -135,7 +132,7 @@ ALTER TABLE `user_ticket`
 -- AUTO_INCREMENT for table `user_ticket`
 --
 ALTER TABLE `user_ticket`
-  MODIFY `purchase_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `purchase_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
