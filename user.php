@@ -67,7 +67,7 @@ if(isset($_SESSION['email']))
 
                                     <li>
 
-                                        <a href="event.php"><i class="fa fa-qrcode"></i>Event</a>
+                                        <a href="event.php"><i class="fa fa-qrcode"></i>Buy Ticket</a>
                                     </li>
                             </li>
                         </ul>

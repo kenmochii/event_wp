@@ -68,7 +68,7 @@ if(isset($_SESSION['email']))
 
                                     <li>
 
-                                        <a href="event.php"><i class="fa fa-qrcode"></i>Event</a>
+                                        <a href="event.php"><i class="fa fa-qrcode"></i>Buy Ticket</a>
                                     </li>
                                 
                             </li>
@@ -85,7 +85,7 @@ if(isset($_SESSION['email']))
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="page-header">
-                                    Event 
+                                    Tomorrowland Ticket 
                                 </h1>
                             </div>
                         </div>
@@ -150,7 +150,6 @@ if(isset($_SESSION['email']))
                     ?>
                      </div>
                         <!-- /. ROW  -->
-                        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
                     </div>
                     <!-- /. PAGE INNER  -->
                 </div>

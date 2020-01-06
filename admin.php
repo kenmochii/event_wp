@@ -86,11 +86,6 @@ while ($row_qty = mysqli_fetch_array($result_qty, MYSQLI_BOTH)) {
                         <i class="fa fa-user fa-fw"></i><b>   <?php echo $_SESSION['fname']?></b>   <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
                         <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -160,7 +155,7 @@ while ($row_qty = mysqli_fetch_array($result_qty, MYSQLI_BOTH)) {
                             </div>
                             <div class="panel-right pull-right">
 								<h3><?php echo "$total"?></h3>
-                               <strong> Registered </strong>
+                               <strong> User Registered </strong>
                             </div>
                         </div>
                     </div>
@@ -172,7 +167,7 @@ while ($row_qty = mysqli_fetch_array($result_qty, MYSQLI_BOTH)) {
                                 
                             <div class="panel-right pull-right">
 							<h3><?php echo "$total_ticket"?></h3>
-                               <strong> Total ticket sold</strong>
+                               <strong> Ticket Sold</strong>
 
                             </div>
                         </div>
@@ -185,7 +180,7 @@ while ($row_qty = mysqli_fetch_array($result_qty, MYSQLI_BOTH)) {
                             </div>
                             <div class="panel-right pull-right">
 							 <h3><?php echo "$total_qty" ?></h3>
-                               <strong> Total ticket available </strong>
+                               <strong> Total Ticket for Tomorrowland</strong>
 
                             </div>
                         </div>
@@ -267,7 +262,6 @@ while ($row_qty = mysqli_fetch_array($result_qty, MYSQLI_BOTH)) {
                 </div>
             </div>
                 <!-- /. ROW  -->
-				<footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>
