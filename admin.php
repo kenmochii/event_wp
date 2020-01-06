@@ -8,10 +8,15 @@ if(isset($_SESSION['email']))
 
  $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
 
-     $sql="SELECT * FROM user";
+     $sql="SELECT COUNT(usertype) as total FROM user WHERE usertype='User'";
  
- $result=mysqli_query($con,$sql) or die("cannot execute sql");
-    $total=mysqli_num_rows($result);
+$result=mysqli_query($con,$sql) or die("cannot execute sql");
+
+$total = 0;
+while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+    $total = $row['total'];
+}
+//$total=mysqli_num_rows($result);
 ?>
 
 
@@ -326,9 +331,13 @@ if(isset($_SESSION['email']))
 }
 
 else
+{
  echo "No session exist or session is expired. Please log in again";
- header("refresh:2.0; url:../signin.html");
+ header("refresh:2.0; url:../signin.php");
+}
+ exit();
 ?> 
+
 
 </body>
 

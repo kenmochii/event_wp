@@ -136,7 +136,6 @@ if(isset($_SESSION['email']))
                                             <th>Last Name</th>
                                             <th>Phone Number</th>
                                             <th>Gender</th>
-                                            <th>Ticket Number</th>
                                             <th>Manage</th>
                                         </tr>
                                     </thead>
@@ -157,7 +156,6 @@ if(isset($_SESSION['email']))
                                         $lname=$data[3];
                                         $pnum=$data[5];
                                         $gender=$data[6];
-                                        $ticketnum=$data[7];
 ?>
                                         <tr class="odd gradeX">
                                         <form method="POST" action="update.php">
@@ -183,7 +181,7 @@ if(isset($_SESSION['email']))
 
                                             </td>
 
-                                            <td><?php echo "$ticketnum"?></td>
+                                            
                                             <td>
 
                                                 <button class="btn btn-default"><i class=" fa fa-refresh "></i>Update</button> 
@@ -238,7 +236,7 @@ if(isset($_SESSION['email']))
 
 else
  echo "No session exist or session is expired. Please log in again";
- header("refresh:2.0; url:../signin.html");
+ header("refresh:2.0; url:../signin.php");
 ?> 
    
 </body>

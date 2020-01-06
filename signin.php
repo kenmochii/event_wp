@@ -1,3 +1,10 @@
+<?php
+session_start();
+//$_SESSION["usertype"];
+if(!isset($_SESSION['email']))
+{
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +36,7 @@
 <nav >
      <ul>
      <li align ='center'> <!-- logo -->
-      <a href="index.html">
+      <a href="index.php">
         <img src="images/logotomorrow.png" alt="logo">
       </a>
   </li>
@@ -60,12 +67,12 @@
                         </div>
                         <div class="p-t-15">
                             <button class="btn btn-main-md" type="submit" id="submitbutton" onclick="verify()" disabled>Submit</button>
-                            <button href="index.html" class="btn btn-main-md" type="reset">Cancel</button>
+                            <button href="index.php" class="btn btn-main-md" type="reset">Cancel</button>
 
                         </div>
 
                         <br>
-                            <a href="register.html"> Don't have an account? Click here to register<p>
+                            <a href="register.html"> Don't have an account? Click here to register</a>
                     </form>
                     <!--Input email JS-->
                             <script type="text/javascript">
@@ -96,3 +103,19 @@
     <script src="js/custom.js"></script>
 	</body>
 	</html>
+
+     <?php //put right before close </body> tag
+}
+
+else
+{
+ session_destroy();
+ echo "Session already exist and you're trying to reach sign in page again then now you're will be sign out. Please log in again.";
+ header("refresh:2.0; url=signin.php");
+
+}
+exit();
+?> 
+
+
+

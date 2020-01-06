@@ -34,9 +34,9 @@ if (mysqli_num_rows($sql_result)>0) //to return the query result in number of ro
 else
 	{
 
-	$sql=" INSERT INTO user VALUES('$email', '$password', '$fname', '$lname', 'User', '$phone', '$gender', NULL) ";
+	$sql=" INSERT INTO user VALUES('$email', '$password', '$fname', '$lname', 'User', '$phone', '$gender') ";
 
-	$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysql_error());
+	$result =mysqli_query($con,$sql) or die("Error in inserting data due to ".mysqli_error($con));
 
 	if($result)
 		{

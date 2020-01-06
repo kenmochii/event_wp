@@ -38,7 +38,7 @@
 <nav class="navbar main-nav border-less fixed-top navbar-expand-lg p-0">
   <div class="container-fluid p-0">
       <!-- logo -->
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="index.php">
         <img src="images/logotomorrow.png" alt="logo">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Home <!-- sepatutnya ada dalam <a> data-toggle="dropdown" -->
+          <a class="nav-link" href="index.php">Home <!-- sepatutnya ada dalam <a> data-toggle="dropdown" -->
             <span>|</span>
           </a>
           <!-- Dropdown list 
@@ -150,9 +150,6 @@
 						<p>Brothers Manu and Michiel Beers began making their dreams a reality by teaming up in 2005 for the first ever Tomorrowland held in Boom, Beglium. At the time, Belgium was poised and eager to hold a festival that would excite audiences like Mysteryland was captivating fans in the Netherlands.</p>
 					</div>
 					<ul class="list-inline">
-						<li class="list-inline-item">
-							<a href="#" class="btn btn-main-md">Buy ticket</a>
-						</li>
 						<li class="list-inline-item">
 							<a href="#" class="btn btn-main-md">Read more</a>
 						</li>
@@ -316,7 +313,7 @@
 					</div>
 					<div class="content text-center">
 						<h5><a href="single-speaker.html">Alan Walker</a></h5>
-						<p>Collaborated with PUBG game!</p>
+						<p>Collaborated with PUBG!</p>
 					</div>
 				</div>
 			</div>
@@ -707,36 +704,52 @@
 		</div>
 		<div class="row">
 			<!--Add MSQL Query code here-->
+			<?php
+
+
+             $con=mysqli_connect("localhost","root","","eventwp") or die("cannot connect to the server.".mysqli_error($con));
+
+             $sql="SELECT * FROM ticket";
+
+             $result=mysqli_query($con,$sql) or die("cannot execute sql");
+
+             while($data=mysqli_fetch_array($result,MYSQLI_BOTH))
+             	{
+             		$id=$data[0];
+                    $type=$data[1];
+                    $price=$data[2];
+                    $desc=$data[3];
+                    $qty=$data[4];
+
+
+?>
 			<div class="col-lg-4 col-md-6">
 				<!-- Pricing Item -->
 				<div class="pricing-item featured">
 					<div class="pricing-heading">
 						<!-- Title -->
 						<div class="title">
-							<h6>VIP Lite</h6>
+							<h6><?php echo "$type";?></h6>
 						</div>
 						<!-- Price -->
 						<div class="price">
-							<h2>49.00<span>$</span></h2>
+							<h2><?php echo "$price";?><span>$</span></h2>
 							<p>/Person</p>
 						</div>
 					</div>
 					<div class="pricing-body">
 						<!-- Feature List -->
 						<ul class="feature-list m-0 p-0">
-							<li><p><span class="fa fa-check-circle available"></span>Exclusive Viewing Area</p></li>
-							<li><p><span class="fa fa-check-circle available"></span>Lunch and Drink coupons</p></li>
-							<li><p><span class="fa fa-check-circle available"></span>Lockers (free of charge, limited quantity available)</p></li>
-							<li><p><span class="fa fa-times-circle unavailable"></span>Backstage Access</p></li>
-							<li><p><span class="fa fa-times-circle unavailable"></span>VIP Lounge</p></li>
+							<li><p><?php echo "$desc";?></p></li>
+							
 						</ul>
 					</div>
 					<div class="pricing-footer text-center">
-						<a href="#" class="btn btn-main-md">Buy a ticket</a>
+						<a href="register.html" class="btn btn-main-md">Buy a ticket</a>
 					</div>
 				</div>
 			</div>
-			
+			<?php } ?>
 		</div>
 	</div>
 </section>
@@ -753,7 +766,7 @@
 		<div class="row">
 			<div class="col-md-8">
 				<!-- Get ticket info -->
-				<div class="content-block" href="registration.html">
+				<div class="content-block" href="register.html">
 					<h2>Get Ticket <span class="alternate">Now!</span></h2>
 					<p>Experience the world of EDM</p>
 					<a href="" class="btn btn-main-md">Buy ticket</a>
@@ -849,139 +862,12 @@
 						</li>
 					</ul>
 				</div>
-				 <!--<div class="sponsor-btn text-center">
-					<a href="#" class="btn btn-main-md">Become a sponsor</a>
-				</div> -->
+			
 			</div>
 		</div>
 	</div>
 </section>
 
-
-
-<!--====  End of Sponsors  ====-->
-
-<!--================================
-=            News Posts            =
-=================================-->
-<!--
-<section class="news section">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h3>Eventre <span class="alternate">News</span></h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore dolore</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-8 col-10 m-auto">
-				<div class="blog-post">
-					<div class="post-thumb">
-						<a href="news-single.html">
-							<img src="images/news/post-thumb-one.jpg" alt="post-image" class="img-fluid">
-						</a>
-					</div>
-					<div class="post-content">
-						<div class="date">
-							<h4>20<span>May</span></h4>
-						</div>
-						<div class="post-title">
-							<h2><a href="news-single.html">Elementum purus id ultrices.</a></h2>
-						</div>
-						<div class="post-meta">
-							<ul class="list-inline">
-								<li class="list-inline-item">
-									<i class="fa fa-user-o"></i>
-									<a href="#">Admin</a>
-								</li>
-								<li class="list-inline-item">
-									<i class="fa fa-heart-o"></i>
-									<a href="#">350</a>
-								</li>
-								<li class="list-inline-item">
-									<i class="fa fa-comments-o"></i>
-									<a href="#">30</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-8 col-10 m-auto">
-				<div class="blog-post">
-					<div class="post-thumb">
-						<a href="news-single.html">
-							<img src="images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
-						</a>
-					</div>
-					<div class="post-content">
-						<div class="date">
-							<h4>20<span>May</span></h4>
-						</div>
-						<div class="post-title">
-							<h2><a href="news-single.html">Elementum purus id ultrices.</a></h2>
-						</div>
-						<div class="post-meta">
-							<ul class="list-inline">
-								<li class="list-inline-item">
-									<i class="fa fa-user-o"></i>
-									<a href="#">Admin</a>
-								</li>
-								<li class="list-inline-item">
-									<i class="fa fa-heart-o"></i>
-									<a href="#">350</a>
-								</li>
-								<li class="list-inline-item">
-									<i class="fa fa-comments-o"></i>
-									<a href="#">30</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 m-md-auto col-sm-8 col-10 m-auto">
-				<div class="blog-post">
-					<div class="post-thumb">
-						<a href="news-single.html">
-							<img src="images/news/post-thumb-three.jpg" alt="post-image" class="img-fluid">
-						</a>
-					</div>
-					<div class="post-content">
-						<div class="date">
-							<h4>20<span>May</span></h4>
-						</div>
-						<div class="post-title">
-							<h2><a href="news-single.html">Elementum purus id ultrices.</a></h2>
-						</div>
-						<div class="post-meta">
-							<ul class="list-inline">
-								<li class="list-inline-item">
-									<i class="fa fa-user-o"></i>
-									<a href="#">Admin</a>
-								</li>
-								<li class="list-inline-item">
-									<i class="fa fa-heart-o"></i>
-									<a href="#">350</a>
-								</li>
-								<li class="list-inline-item">
-									<i class="fa fa-comments-o"></i>
-									<a href="#">30</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
--->
-
-<!--====  End of News Posts  ====-->
 
 
 <!--==============================================
@@ -1114,6 +1000,3 @@
 </body>
 
 </html>
-
-
-
