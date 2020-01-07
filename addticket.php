@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+	 <link href="assets/css/font-awesome.css" rel="stylesheet" />
+	 <link href="assets/css/loading.css" rel="stylesheet" />
+</head>
 
 <body>
+
+	<div class="loader">   
+	<span class="box"></span>   
+	<span class="box"></span>  
+<div class="code"> 
+<img src="assets/img/no_background.png" width="120px">
+</div>    
+<span class="txt">adding new ticket...</span>
+</div>
+
+	<video id="videoBG" autoplay muted loop>
+		<source src="assets/vid/Tomorrowland_scenery1.mp4" type="video/mp4">
+		</video>
+
+
 
 <?php
 
@@ -24,8 +42,8 @@ $sql_result = mysqli_query($con , $query);
 
 if (mysqli_num_rows($sql_result)>0) //to return the query result in number of rows
 {
-	header("refresh:2.0; url=ticket.php");
- 	die("Ticket ID is already exist. Please try again.");
+	header("refresh:2.0; url=ticket.php?error=");
+ 	//die("Ticket ID is already exist. Please try again.");
 
 }
 
@@ -38,15 +56,13 @@ else
 
 	if($result)
 		{
-	 	echo "Your new ticket successfully added to Tomorrowland!";
 		mysqli_close($con);
 
-		header("refresh:2.0; url=ticket.php");
+		header("refresh:2.0; url=ticket.php?success=");
 		}
 	else
 	 	{
-	 	echo "Error in adding new ticket. Please try to again.";
-	 	header("refresh:2.0; url=ticket.php");
+	 	header("refresh:2.0; url=ticket.php?error2=");
 		}
 	}
 

@@ -90,17 +90,37 @@ if(isset($_SESSION['email']))
             <div id="page-inner">
              <div class="row">
                     <div class="col-md-12">
+                  <!-- Notification pop up -->
                       <?php 
+                    if(isset($_GET['success']))
+                      { ?>
+                    <div class="row">
+                    <div class="alert alert-success alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Success!</strong> the data has been updated
+                    </div>
 
-                    if(isset($_GET['message']))
-                      {
-                         $message=$_GET['message'];
-                          echo '<script language="javascript">';
-                          echo 'alert("Data has been updated")';
-                          echo '</script>';
-                      }
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+                  </div>
+                     <?php }
 
-?>
+                        ?>
+
+                          <?php 
+                    if(isset($_GET['error']))
+                      { ?>
+                    <div class="row">
+                    <div class="alert alert-danger alert-dismissable fade in">
+                    <a href="#" class="close" data-dismiss="alert" area-label="close">&times;</a>
+                    <strong>Error!</strong> the ticket has already exist
+                    </div>
+
+                    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+                  </div>
+                     <?php }
+
+                        ?>
+
                         <h1 class="page-header">
                             TICKET <small>Managing event ticket here</small>
                         </h1>
@@ -111,6 +131,7 @@ if(isset($_SESSION['email']))
                
             <div class="row">
                 <div class="col-md-12">
+
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -358,7 +379,7 @@ else
      <input type="text" name="tprice" id="tprice" class="form-control">
      <br /> 
      <label>Description</label>
-     <textarea maxlength="20" name="tdesc" id="tdesc" class="form-control"/></textarea>
+     <textarea maxlength="50" name="tdesc" id="tdesc" class="form-control"/></textarea>
      <br />  
      <label>Quantity</label>
      <input type="text" name="tqty" id="tqty" class="form-control" />
